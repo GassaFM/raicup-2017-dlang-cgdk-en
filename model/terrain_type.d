@@ -1,22 +1,22 @@
 module model.terrain_type;
 
 /**
- * Тип местности.
+ * Terrain type.
  */
 enum TerrainType : byte
 {
     /**
-     * Равнина.
+     * Plain.
      */
     plain,
 
     /**
-     * Топь.
+     * Swamp.
      */
     swamp,
 
     /**
-     * Лес.
+     * Forest.
      */
     forest
 }

@@ -492,7 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Класс, определяющий сооружение --- прямоугольную область на карте.
+    This class describes a facility. A facility is a rectangular area on the map.
   </p>
 </div>
 
@@ -523,7 +523,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает уникальный идентификатор сооружения.
+    the unique facility <code class="code">id</code>
   </p>
 </div>
 
@@ -556,7 +556,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает тип сооружения.
+    the facility <code class="code">type</code>.
   </p>
 </div>
 
@@ -589,8 +589,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает идентификатор игрока, захватившего сооружение, или <code class="code">-1</code>, если сооружение никем не
- контролируется.
+    the owner player id or <code class="code">-1</code>.
   </p>
 </div>
 
@@ -623,7 +622,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает абсциссу левой границы сооружения.
+    the leftmost X of the facility.
   </p>
 </div>
 
@@ -656,7 +655,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает ординату верхней границы сооружения.
+    the topmost Y of the facility.
   </p>
 </div>
 
@@ -689,9 +688,9 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает индикатор захвата сооружения в интервале от <code class="code">-game.maxFacilityCapturePoints</code> до
- <code class="code">game.maxFacilityCapturePoints</code>. Если индикатор находится в положительной зоне, очки захвата принадлежат
- вам, иначе вашему противнику.
+    the capture level of the facility in the range of <code class="code">-game.maxFacilityCapturePoints</code> to
+ <code class="code">game.maxFacilityCapturePoints</code>. The positive level means, that you are capturing this facility.
+ The negative level means, that some other player is capturing this facility.
   </p>
 </div>
 
@@ -724,8 +723,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает тип техники, производящейся в данном сооружении, или <code class="code">null</code>. Применимо только к заводу
- (<code class="code">FacilityType.vehicleFactory</code>).
+    the type of the vehicle that this factory produces or <code class="code">null</code>. For control center the value is
+ always <code class="code">null</code>.
   </p>
 </div>
 
@@ -758,8 +757,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает неотрицательное число --- прогресс производства техники. Применимо только к заводу
- (<code class="code">FacilityType.vehicleFactory</code>).
+    the nonnegative number that is vehicle production progress. For control center the value is always
+ <code class="code">0</code>.
   </p>
 </div>
 

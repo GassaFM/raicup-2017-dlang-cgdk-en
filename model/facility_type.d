@@ -1,18 +1,20 @@
 module model.facility_type;
 
+import model.facility;
+
 /**
- * Тип сооружения.
+ * Facility type.
  */
 enum FacilityType : byte
 {
     /**
-     * Центр управления. Увеличивает возможное количество действий игрока на
-     * `game.additionalActionCountPerControlCenter` за `game.actionDetectionInterval` игровых тиков.
+     * Increases the limit of player actions for `game.additionalActionCountPerControlCenter` per
+     * `game.actionDetectionInterval` game ticks. Also slightly reduced cooldown of tactical nuclear strikes.
      */
     controlCenter,
 
     /**
-     * Завод. Может производить технику любого типа по выбору игрока.
+     * The factory can produce vehicles of any type.
      */
     vehicleFactory
 }

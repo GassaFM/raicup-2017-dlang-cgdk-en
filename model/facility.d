@@ -4,47 +4,46 @@ import model.vehicle_type;
 import model.facility_type;
 
 /**
- * Класс, определяющий сооружение --- прямоугольную область на карте.
+ * This class describes a facility. A facility is a rectangular area on the map.
  */
 immutable class Facility
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает уникальный идентификатор сооружения.
+     * Returns: the unique facility id
      */
     long id;
     /**
-     * Returns: Возвращает тип сооружения.
+     * Returns: the facility type.
      */
     FacilityType type;
     /**
-     * Returns: Возвращает идентификатор игрока, захватившего сооружение, или `-1`, если сооружение никем не
-     * контролируется.
+     * Returns: the owner player id or `-1`.
      */
     long ownerPlayerId;
     /**
-     * Returns: Возвращает абсциссу левой границы сооружения.
+     * Returns: the leftmost X of the facility.
      */
     double left;
     /**
-     * Returns: Возвращает ординату верхней границы сооружения.
+     * Returns: the topmost Y of the facility.
      */
     double top;
     /**
-     * Returns: Возвращает индикатор захвата сооружения в интервале от `-game.maxFacilityCapturePoints` до
-     * `game.maxFacilityCapturePoints`. Если индикатор находится в положительной зоне, очки захвата принадлежат
-     * вам, иначе вашему противнику.
+     * Returns: the capture level of the facility in the range of `-game.maxFacilityCapturePoints` to
+     * `game.maxFacilityCapturePoints`. The positive level means, that you are capturing this facility.
+     * The negative level means, that some other player is capturing this facility.
      */
     double capturePoints;
     /**
-     * Returns: Возвращает тип техники, производящейся в данном сооружении, или `null`. Применимо только к заводу
-     * (`FacilityType.vehicleFactory`).
+     * Returns: the type of the vehicle that this factory produces or `null`. For control center the value is
+     * always `null`.
      */
     VehicleType vehicleType;
     /**
-     * Returns: Возвращает неотрицательное число --- прогресс производства техники. Применимо только к заводу
-     * (`FacilityType.vehicleFactory`).
+     * Returns: the nonnegative number that is vehicle production progress. For control center the value is always
+     * `0`.
      */
     int productionProgress;
 

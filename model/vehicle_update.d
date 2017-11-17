@@ -1,40 +1,40 @@
 module model.vehicle_update;
 
 /**
- * Класс, частично определяющий технику. Содержит уникальный идентификатор техники, а также все поля техники,
- * значения которых могут изменяться в процессе игры.
+ * Class that partly describes a vehicle. Contains a unique vehicle's identifier as well as all vehicle's fields that
+ * may be changed during the game.
  */
 immutable class VehicleUpdate
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает уникальный идентификатор объекта.
+     * Returns: unique object's identifier.
      */
     long id;
     /**
-     * Returns: Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо.
+     * Returns: the X of the unit's center. The X-axis is directed from left to right.
      */
     double x;
     /**
-     * Returns: Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз.
+     * Returns: the Y of the unit's center. The Y-axis is directed downward.
      */
     double y;
     /**
-     * Returns: Возвращает текущую прочность или `0`, если техника была уничтожена либо ушла из зоны видимости.
+     * Returns: current durability, or `0` if the vehicle has either been destroyed or became invisible to you.
      */
     int durability;
     /**
-     * Returns: Возвращает количество тиков, оставшееся до следующей атаки.
-     * Для совершения атаки необходимо, чтобы это значение было равно нулю.
+     * Returns: amount of ticks before the vehicle can attack again.
+     * In order to attack this value has to be equal zero.
      */
     int remainingAttackCooldownTicks;
     /**
-     * Returns: Возвращает `true` в том и только том случае, если эта техника выделена.
+     * Returns: `true` iff the vehicle is selected.
      */
     bool selected;
     /**
-     * Returns: Возвращает группы, в которые входит эта техника.
+     * Returns: list of groups that the vehicle belongs to.
      */
     int [] groups;
 

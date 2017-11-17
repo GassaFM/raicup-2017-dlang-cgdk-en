@@ -1,83 +1,80 @@
 module model.action_type;
 
-import model.facility_type;
-
 /**
- * Возможные действия игрока.
+ * Available player actions.
  * $(BR)
- * Игрок не может совершить новое действие, если в течение последних `game.actionDetectionInterval - 1` игровых
- * тиков он уже совершил максимально возможное для него количество действий. В начале игры это ограничение для каждого
- * игрока равно `game.baseActionCount`. Ограничение увеличивается за каждый контролируемый игроком центр
- * управления (`FacilityType.controlCenter`).
+ * A player can not perform any new action, if during last `game.actionDetectionInterval - 1` game ticks he
+ * already performed maximum possible actions. At the start of the game this limit is `game.baseActionCount` for
+ * each player. The limit increases for each captured control center.
  * $(BR)
- * Большинство действий требует указания дополнительных параметров, являющихся полями объекта `move`. В случае,
- * если эти параметры установлены некорректно либо указаны не все обязательные параметры, действие будет проигнорировано
- * игровым симулятором. Любое действие, отличное от `none`, даже проигнорированное, будет учтено в счётчике
- * действий игрока.
+ * The most actions require additional parameters to perform. The strategy can set up an action with parameters updating
+ * fields of a `move` object. If the specified parameters are incorrect or not sufficient, the action will be
+ * ignored by game simulator. However, each action that is specified and is not `none` counts in the list of last
+ * actions.
  */
 enum ActionType : byte
 {
     /**
-     * Ничего не делать.
+     * Do nothing.
      */
     none,
 
     /**
-     * Пометить юнитов, соответствующих некоторым параметрам, как выделенных.
-     * При этом, со всех остальных юнитов выделение снимается.
-     * Юниты других игроков автоматически исключаются из выделения.
+     * Select units that match specified parameters.
+     * Deselect units that do not match these parameters.
+     * The units of other players are automatically excluded.
      */
     clearAndSelect,
 
     /**
-     * Пометить юнитов, соответствующих некоторым параметрам, как выделенных.
-     * При этом, выделенные ранее юниты остаются выделенными.
-     * Юниты других игроков автоматически исключаются из выделения.
+     * Select units that match specified parameters.
+     * Already selected units stay selected.
+     * The units of other players are automatically excluded.
      */
     addToSelection,
 
     /**
-     * Снять выделение с юнитов, соответствующих некоторым параметрам.
+     * Deselect units that match specified parameters.
      */
     deselect,
 
     /**
-     * Установить для выделенных юнитов принадлежность к группе.
+     * Assign selected units to the specified group.
      */
     assign,
 
     /**
-     * Убрать у выделенных юнитов принадлежность к группе.
+     * Dismiss selected units from the specified group.
      */
     dismiss,
 
     /**
-     * Расформировать группу.
+     * Disband the group.
      */
     disband,
 
     /**
-     * Приказать выделенным юнитам меремещаться в указанном направлении.
+     * Order selected units to move in the specified direction direction.
      */
     move,
 
     /**
-     * Приказать выделенным юнитам поворачиваться относительно указанной точки.
+     * Order selected units to rotate around the specified point.
      */
     rotate,
 
     /**
-     * Масштабировать формацию выделенных юнитов относительно указанной точки.
+     * Scale the formation of selected units relative to the specified point.
      */
     scale,
 
     /**
-     * Настроить производство нужного типа техники на заводе (`FacilityType.vehicleFactory`).
+     * Set up production of the specified vehicle type on factory.
      */
     setupVehicleProduction,
 
     /**
-     * Запросить тактический ядерный удар.
+     * Request tactical nuclear strike.
      */
     tacticalNuclearStrike
 }

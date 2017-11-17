@@ -1,425 +1,386 @@
 module model.game;
 
-import model.weather_type;
-import model.action_type;
-import model.terrain_type;
-import model.facility_type;
-
 /**
- * Предоставляет доступ к различным игровым константам.
+ * An instance of this class contains all game constants.
  */
 immutable class Game
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает некоторое число, которое ваша стратегия может использовать для инициализации генератора
-     * случайных чисел. Данное значение имеет рекомендательный характер, однако позволит более точно воспроизводить
-     * прошедшие игры.
+     * Returns: the number that is highly recommended to use as a seed for rng (generator of pseudo-random numbers).
      */
     long randomSeed;
     /**
-     * Returns: Возвращает базовую длительность игры в тиках. Реальная длительность может отличаться от этого значения в
-     * меньшую сторону. Эквивалентно `world.tickCount`.
+     * Returns: the base game duration in ticks. A real game duration may be lower. Equals to `world.tickCount`.
      */
     int tickCount;
     /**
-     * Returns: Возвращает ширину карты.
+     * Returns: the width of the map.
      */
     double worldWidth;
     /**
-     * Returns: Возвращает высоту карты.
+     * Returns: the height of the map.
      */
     double worldHeight;
     /**
-     * Returns: Возвращает `true`, если и только если в данной игре включен режим частичной видимости.
+     * Returns: `true` if and only if the fog of war is enabled in the current game.
      */
     bool fogOfWarEnabled;
     /**
-     * Returns: Возвращает количество баллов, получаемое игроком в случае уничтожения всех юнитов противника.
+     * Returns: the amount of score points received for destroying all enemy units.
      */
     int victoryScore;
     /**
-     * Returns: Возвращает количество баллов за захват сооружения.
+     * Returns: the amount of score points for capturing a facility.
      */
     int facilityCaptureScore;
     /**
-     * Returns: Возвращает количество баллов за уничтожение юнита противника.
+     * Returns: the amount of score points for destroying a single enemy unit.
      */
     int vehicleEliminationScore;
     /**
-     * Returns: Возвращает интервал, учитываемый в ограничении количества действий стратегии.
+     * Returns: the interval that is used to limit player actions.
      */
     int actionDetectionInterval;
     /**
-     * Returns: Возвращает базовое количество действий, которое может совершить стратегия за
-     * `actionDetectionInterval` последовательных тиков.
+     * Returns: the base action count that player can perform in `actionDetectionInterval` ticks.
      */
     int baseActionCount;
     /**
-     * Returns: Возвращает дополнительное количество действий за каждый захваченный центр управления
-     * (`FacilityType.controlCenter`).
+     * Returns: the additional action count per each captured control center.
      */
     int additionalActionCountPerControlCenter;
     /**
-     * Returns: Возвращает максимально возможный индекс группы юнитов.
+     * Returns: the max index of a unit group.
      */
     int maxUnitGroup;
     /**
-     * Returns: Возвращает количество столбцов в картах местности и погоды.
+     * Returns: the count of columns in terrain/weather maps.
      */
     int terrainWeatherMapColumnCount;
     /**
-     * Returns: Возвращает количество строк в картах местности и погоды.
+     * Returns: the count of rows in terrain/weather maps.
      */
     int terrainWeatherMapRowCount;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора наземной техники, находящейся на равнинной местности
-     * (`TerrainType.plain`).
+     * Returns: the vision range factor of a ground vehicle in plain terrain.
      */
     double plainTerrainVisionFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора любой техники при обнаружении наземной техники противника,
-     * находящейся на равнинной местности (`TerrainType.plain`).
+     * Returns: the vision range factor of any vehicle that is trying to detect a ground vehicle in plain terrain.
      */
     double plainTerrainStealthFactor;
     /**
-     * Returns: Возвращает мультипликатор максимальной скорости наземной техники, находящейся на равнинной местности
-     * (`TerrainType.plain`).
+     * Returns: the speed factor of ground vehicles in plain terrain.
      */
     double plainTerrainSpeedFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора наземной техники, находящейся в болотистой местности
-     * (`TerrainType.swamp`).
+     * Returns: the vision range factor of a ground vehicle in swamp terrain.
      */
     double swampTerrainVisionFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора любой техники при обнаружении наземной техники противника,
-     * находящейся в болотистой местности (`TerrainType.swamp`).
+     * Returns: the vision range factor of any vehicle that is trying to detect a ground vehicle in swamp terrain.
      */
     double swampTerrainStealthFactor;
     /**
-     * Returns: Возвращает мультипликатор максимальной скорости наземной техники, находящейся в болотистой местности
-     * (`TerrainType.swamp`).
+     * Returns: the speed factor of ground vehicles in swamp terrain.
      */
     double swampTerrainSpeedFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора наземной техники, находящейся в лесистой местности
-     * (`TerrainType.forest`).
+     * Returns: the vision range factor of a ground vehicle in forest terrain.
      */
     double forestTerrainVisionFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора любой техники при обнаружении наземной техники противника,
-     * находящейся в лесистой местности (`TerrainType.forest`).
+     * Returns: the vision range factor of any vehicle that is trying to detect a ground vehicle in forest terrain.
      */
     double forestTerrainStealthFactor;
     /**
-     * Returns: Возвращает мультипликатор максимальной скорости наземной техники, находящейся в лесистой местности
-     * (`TerrainType.forest`).
+     * Returns: the speed factor of ground vehicles in forest terrain.
      */
     double forestTerrainSpeedFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора воздушной техники, находящейся в области ясной погоды
-     * (`WeatherType.clear`).
+     * Returns: the vision range factor of an aerial vehicle in clear weather.
      */
     double clearWeatherVisionFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора любой техники при обнаружении воздушной техники противника,
-     * находящейся в области ясной погоды (`WeatherType.clear`).
+     * Returns: the vision range factor of any vehicle that is trying to detect an aerial vehicle in clear weather.
      */
     double clearWeatherStealthFactor;
     /**
-     * Returns: Возвращает мультипликатор максимальной скорости воздушной техники, находящейся в области ясной погоды
-     * (`WeatherType.clear`).
+     * Returns: the speed factor of aerial vehicles in clear weather.
      */
     double clearWeatherSpeedFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора воздушной техники, находящейся в плотных облаках
-     * (`WeatherType.cloud`).
+     * Returns: the vision range factor of an aerial vehicle in cloud weather.
      */
     double cloudWeatherVisionFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора любой техники при обнаружении воздушной техники противника,
-     * находящейся в плотных облаках (`WeatherType.cloud`).
+     * Returns: the vision range factor of any vehicle that is trying to detect an aerial vehicle in cloud weather.
      */
     double cloudWeatherStealthFactor;
     /**
-     * Returns: Возвращает мультипликатор максимальной скорости воздушной техники, находящейся в плотных облаках
-     * (`WeatherType.cloud`).
+     * Returns: the speed factor of aerial vehicles in cloud weather.
      */
     double cloudWeatherSpeedFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора воздушной техники, находящейся в условиях сильного дождя
-     * (`WeatherType.rain`).
+     * Returns: the vision range factor of an aerial vehicle in rain weather.
      */
     double rainWeatherVisionFactor;
     /**
-     * Returns: Возвращает мультипликатор радиуса обзора любой техники при обнаружении воздушной техники противника,
-     * находящейся в условиях сильного дождя (`WeatherType.rain`).
+     * Returns: the vision range factor of any vehicle that is trying to detect an aerial vehicle in rain weather.
      */
     double rainWeatherStealthFactor;
     /**
-     * Returns: Возвращает мультипликатор максимальной скорости воздушной техники, находящейся в условиях сильного дождя
-     * (`WeatherType.rain`).
+     * Returns: the speed factor of aerial vehicles in rain weather.
      */
     double rainWeatherSpeedFactor;
     /**
-     * Returns: Возвращает радиус техники.
+     * Returns: the radius of a vehicle.
      */
     double vehicleRadius;
     /**
-     * Returns: Возвращает максимальную прочность танка.
+     * Returns: the maximal durability of a tank.
      */
     int tankDurability;
     /**
-     * Returns: Возвращает максимальную скорость танка.
+     * Returns: the maximal speed of a tank.
      */
     double tankSpeed;
     /**
-     * Returns: Возвращает базовый радиус обзора танка.
+     * Returns: the base vision range of a tank.
      */
     double tankVisionRange;
     /**
-     * Returns: Возвращает дальность атаки танка по наземным целям.
+     * Returns: the attack range of a tank against ground targets.
      */
     double tankGroundAttackRange;
     /**
-     * Returns: Возвращает дальность атаки танка по воздушным целям.
+     * Returns: the attack range of a tank against aerial targets.
      */
     double tankAerialAttackRange;
     /**
-     * Returns: Возвращает урон одной атаки танка по наземной технике.
+     * Returns: the attack damage of a tank against ground targets.
      */
     int tankGroundDamage;
     /**
-     * Returns: Возвращает урон одной атаки танка по воздушной технике.
+     * Returns: the attack damage of a tank against aerial targets.
      */
     int tankAerialDamage;
     /**
-     * Returns: Возвращает защиту танка от атак наземной техники.
+     * Returns: the defence of a tank against ground attacks.
      */
     int tankGroundDefence;
     /**
-     * Returns: Возвращает защиту танка от атак воздушной техники.
+     * Returns: the defence of a tank against aerial attacks.
      */
     int tankAerialDefence;
     /**
-     * Returns: Возвращает интервал в тиках между двумя последовательными атаками танка.
+     * Returns: the attack cooldown of a tank.
      */
     int tankAttackCooldownTicks;
     /**
-     * Returns: Возвращает количество тиков, необхожимое для производства одного танка на заводе
-     * (`FacilityType.vehicleFactory`).
+     * Returns: the amount of ticks to produce a tank on a factory.
      */
     int tankProductionCost;
     /**
-     * Returns: Возвращает максимальную прочность БМП.
+     * Returns: the maximal durability of an ifv.
      */
     int ifvDurability;
     /**
-     * Returns: Возвращает максимальную скорость БМП.
+     * Returns: the maximal speed of an ifv.
      */
     double ifvSpeed;
     /**
-     * Returns: Возвращает базовый радиус обзора БМП.
+     * Returns: the base vision range of an ifv.
      */
     double ifvVisionRange;
     /**
-     * Returns: Возвращает дальность атаки БМП по наземным целям.
+     * Returns: the attack range of an ifv against ground targets.
      */
     double ifvGroundAttackRange;
     /**
-     * Returns: Возвращает дальность атаки БМП по воздушным целям.
+     * Returns: the attack range of an ifv against aerial targets.
      */
     double ifvAerialAttackRange;
     /**
-     * Returns: Возвращает урон одной атаки БМП по наземной технике.
+     * Returns: the attack damage of an ifv against ground targets.
      */
     int ifvGroundDamage;
     /**
-     * Returns: Возвращает урон одной атаки БМП по воздушной технике.
+     * Returns: the attack damage of an ifv against aerial targets.
      */
     int ifvAerialDamage;
     /**
-     * Returns: Возвращает защиту БМП от атак наземной техники.
+     * Returns: the defence of an ifv against ground attacks.
      */
     int ifvGroundDefence;
     /**
-     * Returns: Возвращает защиту БМП от атак воздушной техники.
+     * Returns: the defence of an ifv against aerial attacks.
      */
     int ifvAerialDefence;
     /**
-     * Returns: Возвращает интервал в тиках между двумя последовательными атаками БМП.
+     * Returns: the attack cooldown of an ifv.
      */
     int ifvAttackCooldownTicks;
     /**
-     * Returns: Возвращает количество тиков, необхожимое для производства одной БМП на заводе
-     * (`FacilityType.vehicleFactory`).
+     * Returns: the amount of ticks to produce an ifv on a factory.
      */
     int ifvProductionCost;
     /**
-     * Returns: Возвращает максимальную прочность БРЭМ.
+     * Returns: the maximal durability of an arrv.
      */
     int arrvDurability;
     /**
-     * Returns: Возвращает максимальную скорость БРЭМ.
+     * Returns: the maximal speed of an arrv.
      */
     double arrvSpeed;
     /**
-     * Returns: Возвращает базовый радиус обзора БРЭМ.
+     * Returns: the base vision range of an arrv.
      */
     double arrvVisionRange;
     /**
-     * Returns: Возвращает защиту БРЭМ от атак наземной техники.
+     * Returns: the defence of an arrv against ground attacks.
      */
     int arrvGroundDefence;
     /**
-     * Returns: Возвращает защиту БРЭМ от атак воздушной техники.
+     * Returns: the defence of an arrv against aerial attacks.
      */
     int arrvAerialDefence;
     /**
-     * Returns: Возвращает количество тиков, необхожимое для производства одной БРЭМ на заводе
-     * (`FacilityType.vehicleFactory`).
+     * Returns: the amount of ticks to produce an arrv on a factory.
      */
     int arrvProductionCost;
     /**
-     * Returns: Возвращает максимальное расстояние (от центра до центра), на котором БРЭМ может ремонтировать
-     * дружественную технику.
+     * Returns: the repair range of an arrv.
      */
     double arrvRepairRange;
     /**
-     * Returns: Возвращает максимальное количество прочности, которое БРЭМ может восстановить дружественной технике за
-     * один тик.
+     * Returns: the repair amount of an arrv per tick.
      */
     double arrvRepairSpeed;
     /**
-     * Returns: Возвращает максимальную прочность ударного вертолёта.
+     * Returns: the maximal durability of a helicopter.
      */
     int helicopterDurability;
     /**
-     * Returns: Возвращает максимальную скорость ударного вертолёта.
+     * Returns: the maximal speed of a helicopter.
      */
     double helicopterSpeed;
     /**
-     * Returns: Возвращает базовый радиус обзора ударного вертолёта.
+     * Returns: the base vision range of a helicopter.
      */
     double helicopterVisionRange;
     /**
-     * Returns: Возвращает дальность атаки ударного вертолёта по наземным целям.
+     * Returns: the attack range of a helicopter against ground targets.
      */
     double helicopterGroundAttackRange;
     /**
-     * Returns: Возвращает дальность атаки ударного вертолёта по воздушным целям.
+     * Returns: the attack range of a helicopter against aerial targets.
      */
     double helicopterAerialAttackRange;
     /**
-     * Returns: Возвращает урон одной атаки ударного вертолёта по наземной технике.
+     * Returns: the attack damage of a helicopter against ground targets.
      */
     int helicopterGroundDamage;
     /**
-     * Returns: Возвращает урон одной атаки ударного вертолёта по воздушной технике.
+     * Returns: the attack damage of a helicopter against aerial targets.
      */
     int helicopterAerialDamage;
     /**
-     * Returns: Возвращает защиту ударного вертолёта от атак наземной техники.
+     * Returns: the defence of a helicopter against ground attacks.
      */
     int helicopterGroundDefence;
     /**
-     * Returns: Возвращает защиту ударного вертолёта от атак воздушной техники.
+     * Returns: the defence of a helicopter against aerial attacks.
      */
     int helicopterAerialDefence;
     /**
-     * Returns: Возвращает интервал в тиках между двумя последовательными атаками ударного вертолёта.
+     * Returns: the attack cooldown of a helicopter.
      */
     int helicopterAttackCooldownTicks;
     /**
-     * Returns: Возвращает количество тиков, необхожимое для производства одного ударного вертолёта на заводе
-     * (`FacilityType.vehicleFactory`).
+     * Returns: the amount of ticks to produce a helicopter on a factory.
      */
     int helicopterProductionCost;
     /**
-     * Returns: Возвращает максимальную прочность истребителя.
+     * Returns: the maximal durability of a fighter.
      */
     int fighterDurability;
     /**
-     * Returns: Возвращает максимальную скорость истребителя.
+     * Returns: the maximal speed of a fighter.
      */
     double fighterSpeed;
     /**
-     * Returns: Возвращает базовый радиус обзора истребителя.
+     * Returns: the base vision range of a fighter.
      */
     double fighterVisionRange;
     /**
-     * Returns: Возвращает дальность атаки истребителя по наземным целям.
+     * Returns: the attack range of a fighter against ground targets.
      */
     double fighterGroundAttackRange;
     /**
-     * Returns: Возвращает дальность атаки истребителя по воздушным целям.
+     * Returns: the attack range of a fighter against aerial targets.
      */
     double fighterAerialAttackRange;
     /**
-     * Returns: Возвращает урон одной атаки истребителя по наземной технике.
+     * Returns: the attack damage of a fighter against ground targets.
      */
     int fighterGroundDamage;
     /**
-     * Returns: Возвращает урон одной атаки истребителя по воздушной технике.
+     * Returns: the attack damage of a fighter against aerial targets.
      */
     int fighterAerialDamage;
     /**
-     * Returns: Возвращает защиту истребителя от атак наземной техники.
+     * Returns: the defence of a fighter against ground attacks.
      */
     int fighterGroundDefence;
     /**
-     * Returns: Возвращает защиту истребителя от атак воздушной техники.
+     * Returns: the defence of a fighter against aerial attacks.
      */
     int fighterAerialDefence;
     /**
-     * Returns: Возвращает интервал в тиках между двумя последовательными атаками истребителя.
+     * Returns: the attack cooldown of a fighter.
      */
     int fighterAttackCooldownTicks;
     /**
-     * Returns: Возвращает количество тиков, необхожимое для производства одного истребителя на заводе
-     * (`FacilityType.vehicleFactory`).
+     * Returns: the amount of ticks to produce a fighter on a factory.
      */
     int fighterProductionCost;
     /**
-     * Returns: Возвращает максимально возможную абсолютную величину индикатора захвата сооружения
-     * (`facility.capturePoints`).
+     * Returns: the maximal possible amount of facility capture points.
      */
     double maxFacilityCapturePoints;
     /**
-     * Returns: Возвращает скорость изменения индикатора захвата сооружения (`facility.capturePoints`) за каждую
-     * единицу техники, центр которой находится внутри сооружения.
+     * Returns: the speed of facility capturing per each vehicle inside the facility area.
      */
     double facilityCapturePointsPerVehiclePerTick;
     /**
-     * Returns: Возвращает ширину сооружения.
+     * Returns: the width of facility area.
      */
     double facilityWidth;
     /**
-     * Returns: Возвращает высоту сооружения.
+     * Returns: the height of facility area.
      */
     double facilityHeight;
     /**
-     * Returns: Возвращает минимально возможный интервал между двумя последовательными тактическими ядерными ударами
-     * (`ActionType.tacticalNuclearStrike`).
+     * Returns: the base cooldown of tactical nuclear strike request.
      */
     int baseTacticalNuclearStrikeCooldown;
     /**
-     * Returns: Возвращает уменьшение интервала между тактическими ядерными ударами за каждый захваченный центр
-     * управления (`FacilityType.controlCenter`).
+     * Returns: the cooldown decrease of tactical nuclear strike request per each captured control center.
      */
     int tacticalNuclearStrikeCooldownDecreasePerControlCenter;
     /**
-     * Returns: Возвращает урон тактического ядерного удара в центре взрыва.
+     * Returns: the damage in the center of a nuclear explosion.
      */
     double maxTacticalNuclearStrikeDamage;
     /**
-     * Returns: Возвращает радиус взрыва тактического ядерного удара.
+     * Returns: the radius of a nuclear explosion.
      */
     double tacticalNuclearStrikeRadius;
     /**
-     * Returns: Возвращает задержку между запросом нанесения тактического ядерного удара и собственно самим нанесением.
+     * Returns: the delay between the request of tactical nuclear strike and the nuclear explosion.
      */
     int tacticalNuclearStrikeDelay;
 

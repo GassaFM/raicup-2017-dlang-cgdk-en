@@ -5,99 +5,95 @@ import model.vehicle_update;
 import model.circular_unit;
 
 /**
- * Класс, определяющий технику. Содержит также все свойства круглых объектов.
+ * Class describing a vehicle. Also contains all properties of a circular unit.
  */
 immutable class Vehicle : CircularUnit
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает идентификатор игрока, которому принадлежит техника.
+     * Returns: owner player's id.
      */
     long playerId;
     /**
-     * Returns: Возвращает текущую прочность.
+     * Returns: current durability.
      */
     int durability;
     /**
-     * Returns: Возвращает максимальную прочность.
+     * Returns: maximal durability.
      */
     int maxDurability;
     /**
-     * Returns: Возвращает максимальное расстояние, на которое данная техника может переместиться за один игровой тик,
-     * без учёта типа местности и погоды. При перемещении по дуге учитывается длина дуги,
-     * а не кратчайшее расстояние между начальной и конечной точками.
+     * Returns: maximal distance that can be travelled in one tick
+     * when not affected by terrain or weather. While rotating arc length is taken into account,
+     * not the distance between start and finish positions.
      */
     double maxSpeed;
     /**
-     * Returns: Возвращает максимальное расстояние (от центра до центра),
-     * на котором данная техника обнаруживает другие объекты, без учёта типа местности и погоды.
+     * Returns: maximal range (from center to center) at which this vehicle can detect other objects,
+     * when not affected by terrain or weather.
      */
     double visionRange;
     /**
-     * Returns: Возвращает квадрат максимального расстояния (от центра до центра),
-     * на котором данная техника обнаруживает другие объекты, без учёта типа местности и погоды.
+     * Returns: squared maximal range (from center to center) at which this vehicle can detect other objects,
+     * when not affected by terrain or weather.
      */
     double squaredVisionRange;
     /**
-     * Returns: Возвращает максимальное расстояние (от центра до центра),
-     * на котором данная техника может атаковать наземные объекты.
+     * Returns: maximal range (from center to center) at which this vehicle can attack ground units.
      */
     double groundAttackRange;
     /**
-     * Returns: Возвращает квадрат максимального расстояния (от центра до центра),
-     * на котором данная техника может атаковать наземные объекты.
+     * Returns: squared maximal range (from center to center) at which this vehicle can attack ground units.
      */
     double squaredGroundAttackRange;
     /**
-     * Returns: Возвращает максимальное расстояние (от центра до центра),
-     * на котором данная техника может атаковать воздушные объекты.
+     * Returns: maximal range (from center to center) at which this vehicle can attack aerial units.
      */
     double aerialAttackRange;
     /**
-     * Returns: Возвращает квадрат максимального расстояния (от центра до центра),
-     * на котором данная техника может атаковать воздушные объекты.
+     * Returns: squared maximal range (from center to center) at which this vehicle can attack aerial units.
      */
     double squaredAerialAttackRange;
     /**
-     * Returns: Возвращает урон одной атаки по наземному объекту.
+     * Returns: damage of one attack dealt to a ground unit.
      */
     int groundDamage;
     /**
-     * Returns: Возвращает урон одной атаки по воздушному объекту.
+     * Returns: damage of one attack dealt to an aerial unit.
      */
     int aerialDamage;
     /**
-     * Returns: Возвращает защиту от атак наземных юнитов.
+     * Returns: value of defence from ground units' attacks.
      */
     int groundDefence;
     /**
-     * Returns: Возвращает защиту от атак воздушых юнитов.
+     * Returns: value of defence from aerial units' attacks.
      */
     int aerialDefence;
     /**
-     * Returns: Возвращает минимально возможный интервал между двумя последовательными атаками данной техники.
+     * Returns: minimal possible interval between attacks.
      */
     int attackCooldownTicks;
     /**
-     * Returns: Возвращает количество тиков, оставшееся до следующей атаки.
-     * Для совершения атаки необходимо, чтобы это значение было равно нулю.
+     * Returns: amount of ticks before the vehicle can attack again.
+     * In order to attack this value has to be equal zero.
      */
     int remainingAttackCooldownTicks;
     /**
-     * Returns: Возвращает тип техники.
+     * Returns: vehicle's type.
      */
     VehicleType type;
     /**
-     * Returns: Возвращает `true` в том и только том случае, если эта техника воздушная.
+     * Returns: `true` iff the vehicle is aerial.
      */
     bool aerial;
     /**
-     * Returns: Возвращает `true` в том и только том случае, если эта техника выделена.
+     * Returns: `true` iff the vehicle is selected.
      */
     bool selected;
     /**
-     * Returns: Возвращает группы, в которые входит эта техника.
+     * Returns: list of groups that the vehicle belongs to.
      */
     int [] groups;
 

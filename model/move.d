@@ -3,186 +3,164 @@ import std.typecons;
 
 import model.vehicle_type;
 import model.action_type;
-import model.facility_type;
 
 /**
- * Стратегия игрока может управлять юнитами посредством установки свойств объекта данного класса.
+ * An encapsulated result of each move of your strategy.
  */
 class Move
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Устанавливает действие игрока.
+     * Sets the desired action.
      */
     Nullable !(ActionType, cast (ActionType) (-1)) action;
     /**
-     * Устанавливает группу юнитов для различных действий.
+     * Sets the group of units for various actions.
      * $(BR)
-     * Является опциональным параметром для действий `ActionType.clearAndSelect`,
-     * `ActionType.addToSelection` и `ActionType.deselect`. Если для этих действий группа юнитов
-     * установлена, то параметр `vehicleType`, а также параметры прямоугольной рамки `left`, `top`,
-     * `right` и `bottom` будут проигнорированы.
+     * This parameter is optional for `ActionType.clearAndSelect`, `ActionType.addToSelection` and
+     * `ActionType.deselect`. If the group is set for these actions, then all other parameters
+     * (`vehicleType`, `left`, `top`, `right`, `bottom`) will be ignored.
      * $(BR)
-     * Является обязательным параметром для действий `ActionType.assign`, `ActionType.dismiss` и
-     * `ActionType.disband`. Для действия `ActionType.disband` является единственным учитываемым параметром.
+     * This parameter is required for `ActionType.assign`, `ActionType.dismiss` and
+     * `ActionType.disband`. This is the only parameter for `ActionType.disband`.
      * $(BR)
-     * Корректными значениями являются целые числа от `1` до `game.maxUnitGroup` включительно.
+     * The correct values are integers in range of `1` to `game.maxUnitGroup` both inclusive.
      */
     int group = 0;
     /**
-     * Returns: Устанавливает левую границу прямоугольной рамки для выделения юнитов.
+     * Sets the leftmost X of selection rectangle.
      * $(BR)
-     * Является обязательным параметром для действий `ActionType.clearAndSelect`,
-     * `ActionType.addToSelection` и `ActionType.deselect`, если не установлена группа юнитов.
-     * В противном случае граница будет проигнорирована.
+     * This is required parameter for `ActionType.clearAndSelect`, `ActionType.addToSelection` and
+     * `ActionType.deselect`, if the group is not set. Otherwise this value will be ignored.
      * $(BR)
-     * Корректными значениями являются вещественные числа от `0.0` до `right` включительно.
+     * The correct values are real numbers in range of `0.0` to `right` both inclusive.
      */
     double left = 0.0;
     /**
-     * Returns: Устанавливает верхнюю границу прямоугольной рамки для выделения юнитов.
+     * Sets the topmost Y of selection rectangle.
      * $(BR)
-     * Является обязательным параметром для действий `ActionType.clearAndSelect`,
-     * `ActionType.addToSelection` и `ActionType.deselect`, если не установлена группа юнитов.
-     * В противном случае граница будет проигнорирована.
+     * This is required parameter for `ActionType.clearAndSelect`, `ActionType.addToSelection` and
+     * `ActionType.deselect`, if the group is not set. Otherwise this value will be ignored.
      * $(BR)
-     * Корректными значениями являются вещественные числа от `0.0` до `bottom` включительно.
+     * The correct values are real numbers in range of `0.0` to `bottom` both inclusive.
      */
     double top = 0.0;
     /**
-     * Returns: Устанавливает правую границу прямоугольной рамки для выделения юнитов.
+     * Sets the rightmost X of selection rectangle.
      * $(BR)
-     * Является обязательным параметром для действий `ActionType.clearAndSelect`,
-     * `ActionType.addToSelection` и `ActionType.deselect`, если не установлена группа юнитов.
-     * В противном случае граница будет проигнорирована.
+     * This is required parameter for `ActionType.clearAndSelect`, `ActionType.addToSelection` and
+     * `ActionType.deselect`, if the group is not set. Otherwise this value will be ignored.
      * $(BR)
-     * Корректными значениями являются вещественные числа от `left` до `game.worldWidth` включительно.
+     * The correct values are real numbers in range of `left` to `game.worldWidth` both inclusive.
      */
     double right = 0.0;
     /**
-     * Returns: Устанавливает нижнюю границу прямоугольной рамки для выделения юнитов.
+     * Sets the bottommost Y of selection rectangle.
      * $(BR)
-     * Является обязательным параметром для действий `ActionType.clearAndSelect`,
-     * `ActionType.addToSelection` и `ActionType.deselect`, если не установлена группа юнитов.
-     * В противном случае граница будет проигнорирована.
+     * This is required parameter for `ActionType.clearAndSelect`, `ActionType.addToSelection` and
+     * `ActionType.deselect`, if the group is not set. Otherwise this value will be ignored.
      * $(BR)
-     * Корректными значениями являются вещественные числа от `top` до `game.worldHeight` включительно.
+     * The correct values are real numbers in range of `top` to `game.worldHeight` both inclusive.
      */
     double bottom = 0.0;
     /**
-     * Устанавливает абсциссу точки или вектора.
+     * Sets the X of a point or vector.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.move` и задаёт целевую величину смещения юнитов
-     * вдоль оси абсцисс.
+     * This is required parameter for `ActionType.move` and specifies the X offset.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.rotate` и задаёт абсциссу точки, относительно
-     * которой необходимо совершить поворот.
+     * This is required parameter for `ActionType.rotate` and specifies the X of the rotation center.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.scale` и задаёт абсциссу точки, относительно
-     * которой необходимо совершить масштабирование.
+     * This is required parameter for `ActionType.scale` and specifies the X of the scale pivot.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.tacticalNuclearStrike` и задаёт абсциссу цели
-     * тактического ядерного удара.
+     * This is required parameter for `ActionType.tacticalNuclearStrike` and specifies the X of the explosion
+     * center.
      * $(BR)
-     * Корректными значениями для действия `ActionType.move` являются вещественные числа от
-     * `-game.worldWidth` до `game.worldWidth` включительно. Корректными значениями для действий
-     * `ActionType.rotate` и `ActionType.scale` являются вещественные числа от `-game.worldWidth` до
-     * `2.0 * game.worldWidth` включительно. Корректными значениями для действия
-     * `ActionType.tacticalNuclearStrike` являются вещественные числа от `0.0` до `game.worldWidth`
-     * включительно.
+     * The correct values for `ActionType.move` are real numbers in range of `-game.worldWidth` to
+     * `game.worldWidth` both inclusive. The correct values for `ActionType.rotate` and
+     * `ActionType.scale` are real numbers in range of `-game.worldWidth` to `2.0 * game.worldWidth`
+     * both inclusive. The correct values for `ActionType.tacticalNuclearStrike` are real numbers in range of
+     * `0.0` to `game.worldWidth` both inclusive.
      */
     double x = 0.0;
     /**
-     * Устанавливает ординату точки или вектора.
+     * Sets the Y of a point or vector.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.move` и задаёт целевую величину смещения юнитов
-     * вдоль оси ординат.
+     * This is required parameter for `ActionType.move` and specifies the Y offset.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.rotate` и задаёт ординату точки, относительно
-     * которой необходимо совершить поворот.
+     * This is required parameter for `ActionType.rotate` and specifies the Y of the rotation center.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.scale` и задаёт ординату точки, относительно
-     * которой необходимо совершить масштабирование.
+     * This is required parameter for `ActionType.scale` and specifies the Y of the scale pivot.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.tacticalNuclearStrike` и задаёт ординату цели
-     * тактического ядерного удара.
+     * This is required parameter for `ActionType.tacticalNuclearStrike` and specifies the Y of the explosion
+     * center.
      * $(BR)
-     * Корректными значениями для действия `ActionType.move` являются вещественные числа от
-     * `-game.worldHeight` до `game.worldHeight` включительно. Корректными значениями для действий
-     * `ActionType.rotate` и `ActionType.scale` являются вещественные числа от `-game.worldHeight` до
-     * `2.0 * game.worldHeight` включительно. Корректными значениями для действия
-     * `ActionType.tacticalNuclearStrike` являются вещественные числа от `0.0` до `game.worldHeight`
-     * включительно.
+     * The correct values for `ActionType.move` are real numbers in range of `-game.worldHeight` to
+     * `game.worldHeight` both inclusive. The correct values for `ActionType.rotate` and
+     * `ActionType.scale` are real numbers in range of `-game.worldHeight` to `2.0 * game.worldHeight`
+     * both inclusive. The correct values for `ActionType.tacticalNuclearStrike` are real numbers in range of
+     * `0.0` to `game.worldHeight` both inclusive.
      */
     double y = 0.0;
     /**
-     * Задаёт угол поворота.
+     * Sets the rotation angle.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.rotate` и задаёт угол поворота относительно точки
-     * (`x`, `y`). Положительные значения соответствуют повороту по часовой стрелке.
+     * This is required parameter for `ActionType.rotate`. The positive values mean clockwise rotation.
      * $(BR)
-     * Корректными значениями являются вещественные числа от `-PI` до `PI` включительно.
+     * The correct values are real numbers in range of `-PI` to `PI` both inclusive.
      */
     double angle = 0.0;
     /**
-     * Задаёт коэффициент масштабирования.
+     * Sets the scale factor.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.scale` и задаёт коэффициент масштабирования
-     * формации юнитов относительно точки (`x`, `y`). При значениях коэффициента больше 1.0 происходит
-     * расширение формации, при значениях меньше 1.0 --- сжатие.
+     * This is required parameter for `ActionType.scale`. The values greater than `1.0` increase formation
+     * size, the values less than `1.0` decrease formation size.
      * $(BR)
-     * Корректными значениями являются вещественные числа от `0.1` до `10.0` включительно.
+     * The correct values are real numbers in range of `0.1` to `10.0` both inclusive.
      */
     double factor = 0.0;
     /**
-     * Устанавливает абсолютное ограничение линейной скорости.
+     * Sets the speed limit.
      * $(BR)
-     * Является опциональным параметром для действий `ActionType.move`, `ActionType.rotate` и
-     * `ActionType.scale`. Если для действия `ActionType.rotate` установлено ограничение скорости поворота,
-     * то этот параметр будет проигнорирован.
+     * This is optional parameter for `ActionType.move`, `ActionType.rotate` and `ActionType.scale`.
+     * If for `ActionType.rotate` the max angular speed is set, then this parameter will be ignored.
      * $(BR)
-     * Корректными значениями являются вещественные неотрицательные числа. При этом, `0.0` означает, что
-     * ограничение отсутствует.
+     * The correct values are real nonnegative numbers. The special `0.0` value means that there is no limit.
      */
     double maxSpeed = 0.0;
     /**
-     * Устанавливает абсолютное ограничение скорости поворота в радианах за тик.
+     * Sets the angular speed limit.
      * $(BR)
-     * Является опциональным параметром для действия `ActionType.rotate`. Если для этого действия установлено
-     * ограничение скорости поворота, то параметр `maxSpeed` будет проигнорирован.
+     * This is optional parameter for `ActionType.rotate`. If this parameter is set, then `maxSpeed` will be
+     * ignored.
      * $(BR)
-     * Корректными значениями являются вещественные числа в интервале от `0.0` до `PI` включительно. При
-     * этом, `0.0` означает, что ограничение отсутствует.
+     * The correct values are real numbers in range of `0.0` to `PI` both inclusive. The special `0.0`
+     * value means that there is no limit.
      */
     double maxAngularSpeed = 0.0;
     /**
-     * Устанавливает тип техники.
+     * Sets the vehicle type.
      * $(BR)
-     * Является опциональным параметром для действий `ActionType.clearAndSelect`,
-     * `ActionType.addToSelection` и `ActionType.deselect`.
-     * Указанные действия будут применены только к технике выбранного типа.
-     * Параметр будет проигнорирован, если установлена группа юнитов.
+     * This is optional filter parameter for `ActionType.clearAndSelect`, `ActionType.addToSelection`
+     * and `ActionType.deselect`. This parameter will be ignored, if the group is set.
      * $(BR)
-     * Является опциональным параметром для действия `ActionType.setupVehicleProduction`.
-     * Завод будет настроен на производство техники данного типа. При этом, прогресс производства будет обнулён.
-     * Если данный параметр не установлен, то производство техники на заводе будет остановлено.
+     * This is optional filter parameter for `ActionType.setupVehicleProduction`. The production progress will
+     * be zeroed in any case.
      */
     Nullable !(VehicleType, cast (VehicleType) (-1)) vehicleType;
     /**
-     * Устанавливает идентификатор сооружения.
+     * Sets the facility id.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.setupVehicleProduction`.
-     * Если сооружение с данным идентификатором отсутствует в игре, не является заводом по производству техники
-     * (`FacilityType.vehicleFactory`) или принадлежит другому игроку, то действие будет проигнорировано.
+     * This is required parameter for `ActionType.setupVehicleProduction`. If there is no factory with this id
+     * or it is not owned by your strategy, then the action will be ignored.
      */
     long facilityId = -1L;
     /**
-     * Устанавливает идентификатор техники.
+     * Sets the vehicle id.
      * $(BR)
-     * Является обязательным параметром для действия `ActionType.tacticalNuclearStrike`. Если юнит с данным
-     * идентификатором отсутствует в игре, принадлежит другому игроку или цель удара находится вне зоны видимости этого
-     * юнита, то действие будет проигнорировано.
+     * This is required parameter for `ActionType.tacticalNuclearStrike`. The action will be ignored, if there
+     * is no vehicle with this id, if unit with this id is owned by other player or if the nuclear strike target is
+     * beyond the vision range of the specified unit.
      */
     long vehicleId = -1L;
 }

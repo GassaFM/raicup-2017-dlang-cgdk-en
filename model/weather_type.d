@@ -1,22 +1,22 @@
 module model.weather_type;
 
 /**
- * Тип погоды.
+ * Weather type.
  */
 enum WeatherType : byte
 {
     /**
-     * Ясно.
+     * Clear.
      */
     clear,
 
     /**
-     * Плотные облака.
+     * Cloud.
      */
     cloud,
 
     /**
-     * Сильный дождь.
+     * Rain.
      */
     rain
 }

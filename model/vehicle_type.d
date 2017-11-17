@@ -1,33 +1,35 @@
 module model.vehicle_type;
 
+import model.vehicle;
+
 /**
- * Тип техники.
+ * Vehicle type.
  */
 enum VehicleType : byte
 {
     /**
-     * Бронированная ремонтно-эвакуационная машина. Наземный юнит.
-     * Постепенно восстанавливает прочность находящейся поблизости техники.
+     * Armored repair and recovery vehicle. Ground unit.
+     * Gradually restores durability of nearby vehicles.
      */
     arrv,
 
     /**
-     * Истребитель. Воздушный юнит. Крайне эффективен против другой воздушной техники. Не может атаковать наземные цели.
+     * Fighter. Aerial unit. Effective against other aerial units. Can not attack ground units.
      */
     fighter,
 
     /**
-     * Ударный вертолёт. Воздушный юнит. Может атаковать как воздушные, так и наземные цели.
+     * Attack helicopter. Aerial unit. Can attack both aerial and ground units.
      */
     helicopter,
 
     /**
-     * Боевая машина пехоты. Наземный юнит. Может атаковать как воздушные, так и наземные цели.
+     * Infantry fighting vehicle. Ground unit. Can attack both aerial and ground units.
      */
     ifv,
 
     /**
-     * Танк. Наземный юнит. Крайне эффективен против другой наземной техники. Также может атаковать воздушные цели.
+     * Tank. Ground unit. Effective against other ground units. Can also attack aerial units.
      */
     tank
 }

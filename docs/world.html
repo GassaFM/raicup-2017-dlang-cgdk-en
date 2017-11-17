@@ -492,7 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Этот класс описывает игровой мир. Содержит также описания всех игроков, игровых объектов (&lt;&lt;юнитов&gt;&gt;) и сооружений.
+    This class describes a game world. A world contains all players and game objects (<code class="code"></code>units’’).
   </p>
 </div>
 
@@ -523,7 +523,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает номер текущего тика.
+    the current game tick.
   </p>
 </div>
 
@@ -556,8 +556,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовую длительность игры в тиках. Реальная длительность может отличаться от этого значения в
- меньшую сторону. Эквивалентно <code class="code">game.<code class="code">tickCount</code></code>.
+    the base game duration in ticks. A real game duration may be lower. Equals to <code class="code">game.<code class="code">tickCount</code></code>.
   </p>
 </div>
 
@@ -590,7 +589,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает ширину мира.
+    the world <code class="code">width</code>.
   </p>
 </div>
 
@@ -623,7 +622,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает высоту мира.
+    the world <code class="code">height</code>.
   </p>
 </div>
 
@@ -656,8 +655,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает список игроков (в случайном порядке).
- В зависимости от реализации, объекты, задающие игроков, могут пересоздаваться после каждого тика.
+    all <code class="code">players</code> (in random order). After each tick the player objects are recreated.
   </p>
 </div>
 
@@ -690,9 +688,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает список техники, о которой у стратегии не было информации в предыдущий игровой тик. В этот
- список попадает как только что произведённая техника, так и уже существующая, но находящаяся вне зоны видимости
- до этого момента.
+    list of vehicles that had no information availavle in the precious tick.
+ It contains both newly created vehicles and those that already existed but were not visible before.
   </p>
 </div>
 
@@ -725,8 +722,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает значения изменяемых полей для каждой видимой техники, если хотя бы одно поле этой техники
- изменилось. Нулевая прочность означает, что техника была уничтожена либо ушла из зоны видимости.
+    changing field values for each visible vehicle if at least one of these fields has been changed.
+ Durability value zero means that the vehicle is either destroyed or became invisible for you.
   </p>
 </div>
 
@@ -759,7 +756,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает карту местности.
+    terrain map.
   </p>
 </div>
 
@@ -792,7 +789,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает карту погоды.
+    weather map.
   </p>
 </div>
 
@@ -825,8 +822,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает список сооружений (в случайном порядке).
- В зависимости от реализации, объекты, задающие сооружения, могут пересоздаваться после каждого тика.
+    list of <code class="code">facilities</code> (in random order).
+ Depending on implementation, corresponding objects may be or not recreated each tick.
   </p>
 </div>
 
@@ -859,7 +856,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает вашего игрока.
+    your player.
   </p>
 </div>
 
@@ -892,7 +889,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает игрока, соревнующегося с вами.
+    opponent's player.
   </p>
 </div>
 

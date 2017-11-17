@@ -492,7 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Класс, определяющий технику. Содержит также все свойства круглых объектов.
+    Class describing a vehicle. Also contains all properties of a circular unit.
   </p>
 </div>
 
@@ -523,7 +523,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает идентификатор игрока, которому принадлежит техника.
+    owner player's id.
   </p>
 </div>
 
@@ -556,7 +556,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает текущую прочность.
+    current <code class="code">durability</code>.
   </p>
 </div>
 
@@ -589,7 +589,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную прочность.
+    maximal durability.
   </p>
 </div>
 
@@ -622,9 +622,9 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальное расстояние, на которое данная техника может переместиться за один игровой тик,
- без учёта типа местности и погоды. При перемещении по дуге учитывается длина дуги,
- а не кратчайшее расстояние между начальной и конечной точками.
+    maximal distance that can be travelled in one tick
+ when not affected by terrain or weather. While rotating arc length is taken into account,
+ not the distance between start and finish positions.
   </p>
 </div>
 
@@ -657,8 +657,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальное расстояние (от центра до центра),
- на котором данная техника обнаруживает другие объекты, без учёта типа местности и погоды.
+    maximal range (from center to center) at which this vehicle can detect other objects,
+ when not affected by terrain or weather.
   </p>
 </div>
 
@@ -691,8 +691,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает квадрат максимального расстояния (от центра до центра),
- на котором данная техника обнаруживает другие объекты, без учёта типа местности и погоды.
+    squared maximal range (from center to center) at which this vehicle can detect other objects,
+ when not affected by terrain or weather.
   </p>
 </div>
 
@@ -725,8 +725,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальное расстояние (от центра до центра),
- на котором данная техника может атаковать наземные объекты.
+    maximal range (from center to center) at which this vehicle can attack ground units.
   </p>
 </div>
 
@@ -759,8 +758,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает квадрат максимального расстояния (от центра до центра),
- на котором данная техника может атаковать наземные объекты.
+    squared maximal range (from center to center) at which this vehicle can attack ground units.
   </p>
 </div>
 
@@ -793,8 +791,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальное расстояние (от центра до центра),
- на котором данная техника может атаковать воздушные объекты.
+    maximal range (from center to center) at which this vehicle can attack aerial units.
   </p>
 </div>
 
@@ -827,8 +824,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает квадрат максимального расстояния (от центра до центра),
- на котором данная техника может атаковать воздушные объекты.
+    squared maximal range (from center to center) at which this vehicle can attack aerial units.
   </p>
 </div>
 
@@ -861,7 +857,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки по наземному объекту.
+    damage of one attack dealt to a ground unit.
   </p>
 </div>
 
@@ -894,7 +890,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки по воздушному объекту.
+    damage of one attack dealt to an aerial unit.
   </p>
 </div>
 
@@ -927,7 +923,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту от атак наземных юнитов.
+    value of defence from ground units' attacks.
   </p>
 </div>
 
@@ -960,7 +956,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту от атак воздушых юнитов.
+    value of defence from aerial units' attacks.
   </p>
 </div>
 
@@ -993,7 +989,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает минимально возможный интервал между двумя последовательными атаками данной техники.
+    minimal possible interval between attacks.
   </p>
 </div>
 
@@ -1026,8 +1022,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, оставшееся до следующей атаки.
- Для совершения атаки необходимо, чтобы это значение было равно нулю.
+    amount of ticks before the vehicle can attack again.
+ In order to attack this value has to be equal zero.
   </p>
 </div>
 
@@ -1060,7 +1056,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает тип техники.
+    vehicle's <code class="code">type</code>.
   </p>
 </div>
 
@@ -1093,7 +1089,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает <code class="code">true</code> в том и только том случае, если эта техника воздушная.
+    <code class="code">true</code> iff the vehicle is <code class="code">aerial</code>.
   </p>
 </div>
 
@@ -1126,7 +1122,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает <code class="code">true</code> в том и только том случае, если эта техника выделена.
+    <code class="code">true</code> iff the vehicle is <code class="code">selected</code>.
   </p>
 </div>
 
@@ -1159,7 +1155,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает группы, в которые входит эта техника.
+    list of <code class="code">groups</code> that the vehicle belongs to.
   </p>
 </div>
 

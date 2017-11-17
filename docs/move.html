@@ -492,7 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Стратегия игрока может управлять юнитами посредством установки свойств объекта данного класса.
+    An encapsulated result of each move of your strategy.
   </p>
 </div>
 
@@ -522,7 +522,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает действие игрока.
+    Sets the desired <code class="code">action</code>.
   </p>
 </div>
 
@@ -554,17 +554,16 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает группу юнитов для различных действий.
+    Sets the <code class="code">group</code> of units for various actions.
  <br>
- Является опциональным параметром для действий <code class="code">ActionType.clearAndSelect</code>,
- <code class="code">ActionType.addToSelection</code> и <code class="code">ActionType.deselect</code>. Если для этих действий группа юнитов
- установлена, то параметр <code class="code">vehicleType</code>, а также параметры прямоугольной рамки <code class="code">left</code>, <code class="code">top</code>,
- <code class="code">right</code> и <code class="code">bottom</code> будут проигнорированы.
+ This parameter is optional for <code class="code">ActionType.clearAndSelect</code>, <code class="code">ActionType.addToSelection</code> and
+ <code class="code">ActionType.deselect</code>. If the <code class="code">group</code> is set for these actions, then all other parameters
+ (<code class="code">vehicleType</code>, <code class="code">left</code>, <code class="code">top</code>, <code class="code">right</code>, <code class="code">bottom</code>) will be ignored.
  <br>
- Является обязательным параметром для действий <code class="code">ActionType.assign</code>, <code class="code">ActionType.dismiss</code> и
- <code class="code">ActionType.disband</code>. Для действия <code class="code">ActionType.disband</code> является единственным учитываемым параметром.
+ This parameter is required for <code class="code">ActionType.assign</code>, <code class="code">ActionType.dismiss</code> and
+ <code class="code">ActionType.disband</code>. This is the only parameter for <code class="code">ActionType.disband</code>.
  <br>
- Корректными значениями являются целые числа от <code class="code">1</code> до <code class="code">game.maxUnitGroup</code> включительно.
+ The correct values are integers in range of <code class="code">1</code> to <code class="code">game.maxUnitGroup</code> both inclusive.
   </p>
 </div>
 
@@ -594,16 +593,14 @@
 </div>
 <div class="ddoc_decl">
   <section class="section ddoc_sections">
-  <div class="ddoc_returns">
-  <h4>Return Value</h4>
+  <div class="ddoc_summary">
   <p class="para">
-    Устанавливает левую границу прямоугольной рамки для выделения юнитов.
+    Sets the leftmost X of selection rectangle.
  <br>
- Является обязательным параметром для действий <code class="code">ActionType.clearAndSelect</code>,
- <code class="code">ActionType.addToSelection</code> и <code class="code">ActionType.deselect</code>, если не установлена группа юнитов.
- В противном случае граница будет проигнорирована.
+ This is required parameter for <code class="code">ActionType.clearAndSelect</code>, <code class="code">ActionType.addToSelection</code> and
+ <code class="code">ActionType.deselect</code>, if the group is not set. Otherwise this value will be ignored.
  <br>
- Корректными значениями являются вещественные числа от <code class="code">0.0</code> до <code class="code">right</code> включительно.
+ The correct values are real numbers in range of <code class="code">0.0</code> to <code class="code">right</code> both inclusive.
   </p>
 </div>
 
@@ -633,16 +630,14 @@
 </div>
 <div class="ddoc_decl">
   <section class="section ddoc_sections">
-  <div class="ddoc_returns">
-  <h4>Return Value</h4>
+  <div class="ddoc_summary">
   <p class="para">
-    Устанавливает верхнюю границу прямоугольной рамки для выделения юнитов.
+    Sets the topmost Y of selection rectangle.
  <br>
- Является обязательным параметром для действий <code class="code">ActionType.clearAndSelect</code>,
- <code class="code">ActionType.addToSelection</code> и <code class="code">ActionType.deselect</code>, если не установлена группа юнитов.
- В противном случае граница будет проигнорирована.
+ This is required parameter for <code class="code">ActionType.clearAndSelect</code>, <code class="code">ActionType.addToSelection</code> and
+ <code class="code">ActionType.deselect</code>, if the group is not set. Otherwise this value will be ignored.
  <br>
- Корректными значениями являются вещественные числа от <code class="code">0.0</code> до <code class="code">bottom</code> включительно.
+ The correct values are real numbers in range of <code class="code">0.0</code> to <code class="code">bottom</code> both inclusive.
   </p>
 </div>
 
@@ -672,16 +667,14 @@
 </div>
 <div class="ddoc_decl">
   <section class="section ddoc_sections">
-  <div class="ddoc_returns">
-  <h4>Return Value</h4>
+  <div class="ddoc_summary">
   <p class="para">
-    Устанавливает правую границу прямоугольной рамки для выделения юнитов.
+    Sets the rightmost X of selection rectangle.
  <br>
- Является обязательным параметром для действий <code class="code">ActionType.clearAndSelect</code>,
- <code class="code">ActionType.addToSelection</code> и <code class="code">ActionType.deselect</code>, если не установлена группа юнитов.
- В противном случае граница будет проигнорирована.
+ This is required parameter for <code class="code">ActionType.clearAndSelect</code>, <code class="code">ActionType.addToSelection</code> and
+ <code class="code">ActionType.deselect</code>, if the group is not set. Otherwise this value will be ignored.
  <br>
- Корректными значениями являются вещественные числа от <code class="code">left</code> до <code class="code">game.worldWidth</code> включительно.
+ The correct values are real numbers in range of <code class="code">left</code> to <code class="code">game.worldWidth</code> both inclusive.
   </p>
 </div>
 
@@ -711,16 +704,14 @@
 </div>
 <div class="ddoc_decl">
   <section class="section ddoc_sections">
-  <div class="ddoc_returns">
-  <h4>Return Value</h4>
+  <div class="ddoc_summary">
   <p class="para">
-    Устанавливает нижнюю границу прямоугольной рамки для выделения юнитов.
+    Sets the bottommost Y of selection rectangle.
  <br>
- Является обязательным параметром для действий <code class="code">ActionType.clearAndSelect</code>,
- <code class="code">ActionType.addToSelection</code> и <code class="code">ActionType.deselect</code>, если не установлена группа юнитов.
- В противном случае граница будет проигнорирована.
+ This is required parameter for <code class="code">ActionType.clearAndSelect</code>, <code class="code">ActionType.addToSelection</code> and
+ <code class="code">ActionType.deselect</code>, if the group is not set. Otherwise this value will be ignored.
  <br>
- Корректными значениями являются вещественные числа от <code class="code">top</code> до <code class="code">game.worldHeight</code> включительно.
+ The correct values are real numbers in range of <code class="code">top</code> to <code class="code">game.worldHeight</code> both inclusive.
   </p>
 </div>
 
@@ -752,26 +743,22 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает абсциссу точки или вектора.
+    Sets the X of a point or vector.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.move</code> и задаёт целевую величину смещения юнитов
- вдоль оси абсцисс.
+ This is required parameter for <code class="code">ActionType.move</code> and specifies the X offset.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.rotate</code> и задаёт абсциссу точки, относительно
- которой необходимо совершить поворот.
+ This is required parameter for <code class="code">ActionType.rotate</code> and specifies the X of the rotation center.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.scale</code> и задаёт абсциссу точки, относительно
- которой необходимо совершить масштабирование.
+ This is required parameter for <code class="code">ActionType.scale</code> and specifies the X of the scale pivot.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.tacticalNuclearStrike</code> и задаёт абсциссу цели
- тактического ядерного удара.
+ This is required parameter for <code class="code">ActionType.tacticalNuclearStrike</code> and specifies the X of the explosion
+ center.
  <br>
- Корректными значениями для действия <code class="code">ActionType.move</code> являются вещественные числа от
- <code class="code">-game.worldWidth</code> до <code class="code">game.worldWidth</code> включительно. Корректными значениями для действий
- <code class="code">ActionType.rotate</code> и <code class="code">ActionType.scale</code> являются вещественные числа от <code class="code">-game.worldWidth</code> до
- <code class="code">2.0 * game.worldWidth</code> включительно. Корректными значениями для действия
- <code class="code">ActionType.tacticalNuclearStrike</code> являются вещественные числа от <code class="code">0.0</code> до <code class="code">game.worldWidth</code>
- включительно.
+ The correct values for <code class="code">ActionType.move</code> are real numbers in range of <code class="code">-game.worldWidth</code> to
+ <code class="code">game.worldWidth</code> both inclusive. The correct values for <code class="code">ActionType.rotate</code> and
+ <code class="code">ActionType.scale</code> are real numbers in range of <code class="code">-game.worldWidth</code> to <code class="code">2.0 * game.worldWidth</code>
+ both inclusive. The correct values for <code class="code">ActionType.tacticalNuclearStrike</code> are real numbers in range of
+ <code class="code">0.0</code> to <code class="code">game.worldWidth</code> both inclusive.
   </p>
 </div>
 
@@ -803,26 +790,22 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает ординату точки или вектора.
+    Sets the Y of a point or vector.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.move</code> и задаёт целевую величину смещения юнитов
- вдоль оси ординат.
+ This is required parameter for <code class="code">ActionType.move</code> and specifies the Y offset.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.rotate</code> и задаёт ординату точки, относительно
- которой необходимо совершить поворот.
+ This is required parameter for <code class="code">ActionType.rotate</code> and specifies the Y of the rotation center.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.scale</code> и задаёт ординату точки, относительно
- которой необходимо совершить масштабирование.
+ This is required parameter for <code class="code">ActionType.scale</code> and specifies the Y of the scale pivot.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.tacticalNuclearStrike</code> и задаёт ординату цели
- тактического ядерного удара.
+ This is required parameter for <code class="code">ActionType.tacticalNuclearStrike</code> and specifies the Y of the explosion
+ center.
  <br>
- Корректными значениями для действия <code class="code">ActionType.move</code> являются вещественные числа от
- <code class="code">-game.worldHeight</code> до <code class="code">game.worldHeight</code> включительно. Корректными значениями для действий
- <code class="code">ActionType.rotate</code> и <code class="code">ActionType.scale</code> являются вещественные числа от <code class="code">-game.worldHeight</code> до
- <code class="code">2.0 * game.worldHeight</code> включительно. Корректными значениями для действия
- <code class="code">ActionType.tacticalNuclearStrike</code> являются вещественные числа от <code class="code">0.0</code> до <code class="code">game.worldHeight</code>
- включительно.
+ The correct values for <code class="code">ActionType.move</code> are real numbers in range of <code class="code">-game.worldHeight</code> to
+ <code class="code">game.worldHeight</code> both inclusive. The correct values for <code class="code">ActionType.rotate</code> and
+ <code class="code">ActionType.scale</code> are real numbers in range of <code class="code">-game.worldHeight</code> to <code class="code">2.0 * game.worldHeight</code>
+ both inclusive. The correct values for <code class="code">ActionType.tacticalNuclearStrike</code> are real numbers in range of
+ <code class="code">0.0</code> to <code class="code">game.worldHeight</code> both inclusive.
   </p>
 </div>
 
@@ -854,12 +837,11 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Задаёт угол поворота.
+    Sets the rotation <code class="code">angle</code>.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.rotate</code> и задаёт угол поворота относительно точки
- (<code class="code">x</code>, <code class="code">y</code>). Положительные значения соответствуют повороту по часовой стрелке.
+ This is required parameter for <code class="code">ActionType.rotate</code>. The positive values mean clockwise rotation.
  <br>
- Корректными значениями являются вещественные числа от <code class="code">-PI</code> до <code class="code">PI</code> включительно.
+ The correct values are real numbers in range of <code class="code">-PI</code> to <code class="code">PI</code> both inclusive.
   </p>
 </div>
 
@@ -891,13 +873,12 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Задаёт коэффициент масштабирования.
+    Sets the scale <code class="code">factor</code>.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.scale</code> и задаёт коэффициент масштабирования
- формации юнитов относительно точки (<code class="code">x</code>, <code class="code">y</code>). При значениях коэффициента больше 1.0 происходит
- расширение формации, при значениях меньше 1.0 --- сжатие.
+ This is required parameter for <code class="code">ActionType.scale</code>. The values greater than <code class="code">1.0</code> increase formation
+ size, the values less than <code class="code">1.0</code> decrease formation size.
  <br>
- Корректными значениями являются вещественные числа от <code class="code">0.1</code> до <code class="code">10.0</code> включительно.
+ The correct values are real numbers in range of <code class="code">0.1</code> to <code class="code">10.0</code> both inclusive.
   </p>
 </div>
 
@@ -929,14 +910,12 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает абсолютное ограничение линейной скорости.
+    Sets the speed limit.
  <br>
- Является опциональным параметром для действий <code class="code">ActionType.move</code>, <code class="code">ActionType.rotate</code> и
- <code class="code">ActionType.scale</code>. Если для действия <code class="code">ActionType.rotate</code> установлено ограничение скорости поворота,
- то этот параметр будет проигнорирован.
+ This is optional parameter for <code class="code">ActionType.move</code>, <code class="code">ActionType.rotate</code> and <code class="code">ActionType.scale</code>.
+ If for <code class="code">ActionType.rotate</code> the max angular speed is set, then this parameter will be ignored.
  <br>
- Корректными значениями являются вещественные неотрицательные числа. При этом, <code class="code">0.0</code> означает, что
- ограничение отсутствует.
+ The correct values are real nonnegative numbers. The special <code class="code">0.0</code> value means that there is no limit.
   </p>
 </div>
 
@@ -968,13 +947,13 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает абсолютное ограничение скорости поворота в радианах за тик.
+    Sets the angular speed limit.
  <br>
- Является опциональным параметром для действия <code class="code">ActionType.rotate</code>. Если для этого действия установлено
- ограничение скорости поворота, то параметр <code class="code">maxSpeed</code> будет проигнорирован.
+ This is optional parameter for <code class="code">ActionType.rotate</code>. If this parameter is set, then <code class="code">maxSpeed</code> will be
+ ignored.
  <br>
- Корректными значениями являются вещественные числа в интервале от <code class="code">0.0</code> до <code class="code">PI</code> включительно. При
- этом, <code class="code">0.0</code> означает, что ограничение отсутствует.
+ The correct values are real numbers in range of <code class="code">0.0</code> to <code class="code">PI</code> both inclusive. The special <code class="code">0.0</code>
+ value means that there is no limit.
   </p>
 </div>
 
@@ -1006,16 +985,13 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает тип техники.
+    Sets the vehicle type.
  <br>
- Является опциональным параметром для действий <code class="code">ActionType.clearAndSelect</code>,
- <code class="code">ActionType.addToSelection</code> и <code class="code">ActionType.deselect</code>.
- Указанные действия будут применены только к технике выбранного типа.
- Параметр будет проигнорирован, если установлена группа юнитов.
+ This is optional filter parameter for <code class="code">ActionType.clearAndSelect</code>, <code class="code">ActionType.addToSelection</code>
+ and <code class="code">ActionType.deselect</code>. This parameter will be ignored, if the group is set.
  <br>
- Является опциональным параметром для действия <code class="code">ActionType.setupVehicleProduction</code>.
- Завод будет настроен на производство техники данного типа. При этом, прогресс производства будет обнулён.
- Если данный параметр не установлен, то производство техники на заводе будет остановлено.
+ This is optional filter parameter for <code class="code">ActionType.setupVehicleProduction</code>. The production progress will
+ be zeroed in any case.
   </p>
 </div>
 
@@ -1047,11 +1023,10 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает идентификатор сооружения.
+    Sets the facility id.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.setupVehicleProduction</code>.
- Если сооружение с данным идентификатором отсутствует в игре, не является заводом по производству техники
- (<code class="code">FacilityType.vehicleFactory</code>) или принадлежит другому игроку, то действие будет проигнорировано.
+ This is required parameter for <code class="code">ActionType.setupVehicleProduction</code>. If there is no factory with this id
+ or it is not owned by your strategy, then the action will be ignored.
   </p>
 </div>
 
@@ -1083,11 +1058,11 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Устанавливает идентификатор техники.
+    Sets the vehicle id.
  <br>
- Является обязательным параметром для действия <code class="code">ActionType.tacticalNuclearStrike</code>. Если юнит с данным
- идентификатором отсутствует в игре, принадлежит другому игроку или цель удара находится вне зоны видимости этого
- юнита, то действие будет проигнорировано.
+ This is required parameter for <code class="code">ActionType.tacticalNuclearStrike</code>. The action will be ignored, if there
+ is no vehicle with this id, if unit with this id is owned by other player or if the nuclear strike target is
+ beyond the vision range of the specified unit.
   </p>
 </div>
 

@@ -8,56 +8,53 @@ import model.player;
 import model.terrain_type;
 
 /**
- * Этот класс описывает игровой мир. Содержит также описания всех игроков, игровых объектов (<<юнитов>>) и сооружений.
+ * This class describes a game world. A world contains all players and game objects (``units’’).
  */
 immutable class World
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает номер текущего тика.
+     * Returns: the current game tick.
      */
     int tickIndex;
     /**
-     * Returns: Возвращает базовую длительность игры в тиках. Реальная длительность может отличаться от этого значения в
-     * меньшую сторону. Эквивалентно `game.tickCount`.
+     * Returns: the base game duration in ticks. A real game duration may be lower. Equals to `game.tickCount`.
      */
     int tickCount;
     /**
-     * Returns: Возвращает ширину мира.
+     * Returns: the world width.
      */
     double width;
     /**
-     * Returns: Возвращает высоту мира.
+     * Returns: the world height.
      */
     double height;
     /**
-     * Returns: Возвращает список игроков (в случайном порядке).
-     * В зависимости от реализации, объекты, задающие игроков, могут пересоздаваться после каждого тика.
+     * Returns: all players (in random order). After each tick the player objects are recreated.
      */
     Player [] players;
     /**
-     * Returns: Возвращает список техники, о которой у стратегии не было информации в предыдущий игровой тик. В этот
-     * список попадает как только что произведённая техника, так и уже существующая, но находящаяся вне зоны видимости
-     * до этого момента.
+     * Returns: list of vehicles that had no information availavle in the precious tick.
+     * It contains both newly created vehicles and those that already existed but were not visible before.
      */
     Vehicle [] newVehicles;
     /**
-     * Returns: Возвращает значения изменяемых полей для каждой видимой техники, если хотя бы одно поле этой техники
-     * изменилось. Нулевая прочность означает, что техника была уничтожена либо ушла из зоны видимости.
+     * Returns: changing field values for each visible vehicle if at least one of these fields has been changed.
+     * Durability value zero means that the vehicle is either destroyed or became invisible for you.
      */
     VehicleUpdate [] vehicleUpdates;
     /**
-     * Returns: Возвращает карту местности.
+     * Returns: terrain map.
      */
     TerrainType [] [] terrainByCellXY;
     /**
-     * Returns: Возвращает карту погоды.
+     * Returns: weather map.
      */
     WeatherType [] [] weatherByCellXY;
     /**
-     * Returns: Возвращает список сооружений (в случайном порядке).
-     * В зависимости от реализации, объекты, задающие сооружения, могут пересоздаваться после каждого тика.
+     * Returns: list of facilities (in random order).
+     * Depending on implementation, corresponding objects may be or not recreated each tick.
      */
     Facility [] facilities;
 
@@ -86,7 +83,7 @@ nothrow pure @safe @nogc:
     }
 
     /**
-     * Returns: Возвращает вашего игрока.
+     * Returns: your player.
      */
     immutable (Player) getMyPlayer ()
     {
@@ -100,7 +97,7 @@ nothrow pure @safe @nogc:
     }
 
     /**
-     * Returns: Возвращает игрока, соревнующегося с вами.
+     * Returns: opponent's player.
      */
     immutable (Player) getOpponentPlayer ()
     {

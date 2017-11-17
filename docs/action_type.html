@@ -492,17 +492,16 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Возможные действия игрока.
+    Available player actions.
  <br>
- Игрок не может совершить новое действие, если в течение последних <code class="code">game.actionDetectionInterval - 1</code> игровых
- тиков он уже совершил максимально возможное для него количество действий. В начале игры это ограничение для каждого
- игрока равно <code class="code">game.baseActionCount</code>. Ограничение увеличивается за каждый контролируемый игроком центр
- управления (<code class="code">FacilityType.controlCenter</code>).
+ A player can not perform any new action, if during last <code class="code">game.actionDetectionInterval - 1</code> game ticks he
+ already performed maximum possible actions. At the start of the game this limit is <code class="code">game.baseActionCount</code> for
+ each player. The limit increases for each captured control center.
  <br>
- Большинство действий требует указания дополнительных параметров, являющихся полями объекта <code class="code">move</code>. В случае,
- если эти параметры установлены некорректно либо указаны не все обязательные параметры, действие будет проигнорировано
- игровым симулятором. Любое действие, отличное от <code class="code">none</code>, даже проигнорированное, будет учтено в счётчике
- действий игрока.
+ The most actions require additional parameters to perform. The strategy can set up an action with parameters updating
+ fields of a <code class="code">move</code> object. If the specified parameters are incorrect or not sufficient, the action will be
+ ignored by game simulator. However, each action that is specified and is not <code class="code">none</code> counts in the list of last
+ actions.
   </p>
 </div>
 
@@ -531,7 +530,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Ничего не делать.
+    Do nothing.
   </p>
 </div>
 
@@ -562,9 +561,9 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Пометить юнитов, соответствующих некоторым параметрам, как выделенных.
- При этом, со всех остальных юнитов выделение снимается.
- Юниты других игроков автоматически исключаются из выделения.
+    Select units that match specified parameters.
+ Deselect units that do not match these parameters.
+ The units of other players are automatically excluded.
   </p>
 </div>
 
@@ -595,9 +594,9 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Пометить юнитов, соответствующих некоторым параметрам, как выделенных.
- При этом, выделенные ранее юниты остаются выделенными.
- Юниты других игроков автоматически исключаются из выделения.
+    Select units that match specified parameters.
+ Already selected units stay selected.
+ The units of other players are automatically excluded.
   </p>
 </div>
 
@@ -628,7 +627,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Снять выделение с юнитов, соответствующих некоторым параметрам.
+    Deselect units that match specified parameters.
   </p>
 </div>
 
@@ -659,7 +658,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Установить для выделенных юнитов принадлежность к группе.
+    Assign selected units to the specified group.
   </p>
 </div>
 
@@ -690,7 +689,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Убрать у выделенных юнитов принадлежность к группе.
+    Dismiss selected units from the specified group.
   </p>
 </div>
 
@@ -721,7 +720,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Расформировать группу.
+    Disband the group.
   </p>
 </div>
 
@@ -752,7 +751,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Приказать выделенным юнитам меремещаться в указанном направлении.
+    Order selected units to <code class="code">move</code> in the specified direction direction.
   </p>
 </div>
 
@@ -783,7 +782,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Приказать выделенным юнитам поворачиваться относительно указанной точки.
+    Order selected units to <code class="code">rotate</code> around the specified point.
   </p>
 </div>
 
@@ -814,7 +813,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Масштабировать формацию выделенных юнитов относительно указанной точки.
+    Scale the formation of selected units relative to the specified point.
   </p>
 </div>
 
@@ -845,7 +844,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Настроить производство нужного типа техники на заводе (<code class="code">FacilityType.vehicleFactory</code>).
+    Set up production of the specified vehicle type on factory.
   </p>
 </div>
 
@@ -876,7 +875,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Запросить тактический ядерный удар.
+    Request tactical nuclear strike.
   </p>
 </div>
 

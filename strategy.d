@@ -6,22 +6,19 @@ import model.player;
 import model.world;
 
 /**
- * Стратегия --- интерфейс, содержащий описание методов искусственного интеллекта армии.
- * Каждая пользовательская стратегия должна реализовывать этот интерфейс.
- * Может отсутствовать в некоторых языковых пакетах, если язык не поддерживает интерфейсы.
+ * This interface contains the methods that each strategy must implement.
  */
 public interface Strategy
 {
     /**
-     * Основной метод стратегии, осуществляющий управление армией. Вызывается каждый тик.
+     * Main strategy method for controlling the vehicles.
+     * The game engine calls this method once each time tick.
      *
      * Params:
-     *   x = X-координата точки.
-     *   y = Y-координата точки.
-     *   me    = Информация о вашем игроке.
-     *   world = Текущее состояние мира.
-     *   game  = Различные игровые константы.
-     *   move  = Результатом работы метода является изменение полей данного объекта.
+     *   me    = the owner player of this strategy.
+     *   world = the current world snapshot.
+     *   game  = various game constants.
+     *   move  = the object that encapsulates all strategy instructions.
      */
     void move (immutable Player me, immutable World world,
         immutable Game game, Move move);

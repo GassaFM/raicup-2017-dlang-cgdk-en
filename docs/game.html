@@ -492,7 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Предоставляет доступ к различным игровым константам.
+    An instance of this class contains all game constants.
   </p>
 </div>
 
@@ -523,9 +523,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает некоторое число, которое ваша стратегия может использовать для инициализации генератора
- случайных чисел. Данное значение имеет рекомендательный характер, однако позволит более точно воспроизводить
- прошедшие игры.
+    the number that is highly recommended to use as a seed for rng (generator of pseudo-random numbers).
   </p>
 </div>
 
@@ -558,8 +556,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовую длительность игры в тиках. Реальная длительность может отличаться от этого значения в
- меньшую сторону. Эквивалентно <code class="code">world.<code class="code">tickCount</code></code>.
+    the base game duration in ticks. A real game duration may be lower. Equals to <code class="code">world.<code class="code">tickCount</code></code>.
   </p>
 </div>
 
@@ -592,7 +589,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает ширину карты.
+    the width of the map.
   </p>
 </div>
 
@@ -625,7 +622,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает высоту карты.
+    the height of the map.
   </p>
 </div>
 
@@ -658,7 +655,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает <code class="code">true</code>, если и только если в данной игре включен режим частичной видимости.
+    <code class="code">true</code> if and only if the fog of war is enabled in the current game.
   </p>
 </div>
 
@@ -691,7 +688,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество баллов, получаемое игроком в случае уничтожения всех юнитов противника.
+    the amount of score points received for destroying all enemy units.
   </p>
 </div>
 
@@ -724,7 +721,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество баллов за захват сооружения.
+    the amount of score points for capturing a facility.
   </p>
 </div>
 
@@ -757,7 +754,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество баллов за уничтожение юнита противника.
+    the amount of score points for destroying a single enemy unit.
   </p>
 </div>
 
@@ -790,7 +787,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает интервал, учитываемый в ограничении количества действий стратегии.
+    the interval that is used to limit player actions.
   </p>
 </div>
 
@@ -823,8 +820,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовое количество действий, которое может совершить стратегия за
- <code class="code">actionDetectionInterval</code> последовательных тиков.
+    the base action count that player can perform in <code class="code">actionDetectionInterval</code> ticks.
   </p>
 </div>
 
@@ -857,8 +853,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дополнительное количество действий за каждый захваченный центр управления
- (<code class="code">FacilityType.controlCenter</code>).
+    the additional action count per each captured control center.
   </p>
 </div>
 
@@ -891,7 +886,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимально возможный индекс группы юнитов.
+    the max index of a unit group.
   </p>
 </div>
 
@@ -924,7 +919,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество столбцов в картах местности и погоды.
+    the count of columns in terrain/weather maps.
   </p>
 </div>
 
@@ -957,7 +952,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество строк в картах местности и погоды.
+    the count of rows in terrain/weather maps.
   </p>
 </div>
 
@@ -990,8 +985,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора наземной техники, находящейся на равнинной местности
- (<code class="code">TerrainType.plain</code>).
+    the vision range factor of a ground vehicle in plain terrain.
   </p>
 </div>
 
@@ -1024,8 +1018,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора любой техники при обнаружении наземной техники противника,
- находящейся на равнинной местности (<code class="code">TerrainType.plain</code>).
+    the vision range factor of any vehicle that is trying to detect a ground vehicle in plain terrain.
   </p>
 </div>
 
@@ -1058,8 +1051,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор максимальной скорости наземной техники, находящейся на равнинной местности
- (<code class="code">TerrainType.plain</code>).
+    the speed factor of ground vehicles in plain terrain.
   </p>
 </div>
 
@@ -1092,8 +1084,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора наземной техники, находящейся в болотистой местности
- (<code class="code">TerrainType.swamp</code>).
+    the vision range factor of a ground vehicle in swamp terrain.
   </p>
 </div>
 
@@ -1126,8 +1117,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора любой техники при обнаружении наземной техники противника,
- находящейся в болотистой местности (<code class="code">TerrainType.swamp</code>).
+    the vision range factor of any vehicle that is trying to detect a ground vehicle in swamp terrain.
   </p>
 </div>
 
@@ -1160,8 +1150,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор максимальной скорости наземной техники, находящейся в болотистой местности
- (<code class="code">TerrainType.swamp</code>).
+    the speed factor of ground vehicles in swamp terrain.
   </p>
 </div>
 
@@ -1194,8 +1183,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора наземной техники, находящейся в лесистой местности
- (<code class="code">TerrainType.forest</code>).
+    the vision range factor of a ground vehicle in forest terrain.
   </p>
 </div>
 
@@ -1228,8 +1216,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора любой техники при обнаружении наземной техники противника,
- находящейся в лесистой местности (<code class="code">TerrainType.forest</code>).
+    the vision range factor of any vehicle that is trying to detect a ground vehicle in forest terrain.
   </p>
 </div>
 
@@ -1262,8 +1249,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор максимальной скорости наземной техники, находящейся в лесистой местности
- (<code class="code">TerrainType.forest</code>).
+    the speed factor of ground vehicles in forest terrain.
   </p>
 </div>
 
@@ -1296,8 +1282,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора воздушной техники, находящейся в области ясной погоды
- (<code class="code">WeatherType.clear</code>).
+    the vision range factor of an aerial vehicle in clear weather.
   </p>
 </div>
 
@@ -1330,8 +1315,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора любой техники при обнаружении воздушной техники противника,
- находящейся в области ясной погоды (<code class="code">WeatherType.clear</code>).
+    the vision range factor of any vehicle that is trying to detect an aerial vehicle in clear weather.
   </p>
 </div>
 
@@ -1364,8 +1348,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор максимальной скорости воздушной техники, находящейся в области ясной погоды
- (<code class="code">WeatherType.clear</code>).
+    the speed factor of aerial vehicles in clear weather.
   </p>
 </div>
 
@@ -1398,8 +1381,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора воздушной техники, находящейся в плотных облаках
- (<code class="code">WeatherType.cloud</code>).
+    the vision range factor of an aerial vehicle in cloud weather.
   </p>
 </div>
 
@@ -1432,8 +1414,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора любой техники при обнаружении воздушной техники противника,
- находящейся в плотных облаках (<code class="code">WeatherType.cloud</code>).
+    the vision range factor of any vehicle that is trying to detect an aerial vehicle in cloud weather.
   </p>
 </div>
 
@@ -1466,8 +1447,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор максимальной скорости воздушной техники, находящейся в плотных облаках
- (<code class="code">WeatherType.cloud</code>).
+    the speed factor of aerial vehicles in cloud weather.
   </p>
 </div>
 
@@ -1500,8 +1480,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора воздушной техники, находящейся в условиях сильного дождя
- (<code class="code">WeatherType.rain</code>).
+    the vision range factor of an aerial vehicle in rain weather.
   </p>
 </div>
 
@@ -1534,8 +1513,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор радиуса обзора любой техники при обнаружении воздушной техники противника,
- находящейся в условиях сильного дождя (<code class="code">WeatherType.rain</code>).
+    the vision range factor of any vehicle that is trying to detect an aerial vehicle in rain weather.
   </p>
 </div>
 
@@ -1568,8 +1546,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает мультипликатор максимальной скорости воздушной техники, находящейся в условиях сильного дождя
- (<code class="code">WeatherType.rain</code>).
+    the speed factor of aerial vehicles in rain weather.
   </p>
 </div>
 
@@ -1602,7 +1579,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает радиус техники.
+    the radius of a vehicle.
   </p>
 </div>
 
@@ -1635,7 +1612,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную прочность танка.
+    the maximal durability of a tank.
   </p>
 </div>
 
@@ -1668,7 +1645,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную скорость танка.
+    the maximal speed of a tank.
   </p>
 </div>
 
@@ -1701,7 +1678,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовый радиус обзора танка.
+    the base vision range of a tank.
   </p>
 </div>
 
@@ -1734,7 +1711,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки танка по наземным целям.
+    the attack range of a tank against ground targets.
   </p>
 </div>
 
@@ -1767,7 +1744,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки танка по воздушным целям.
+    the attack range of a tank against aerial targets.
   </p>
 </div>
 
@@ -1800,7 +1777,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки танка по наземной технике.
+    the attack damage of a tank against ground targets.
   </p>
 </div>
 
@@ -1833,7 +1810,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки танка по воздушной технике.
+    the attack damage of a tank against aerial targets.
   </p>
 </div>
 
@@ -1866,7 +1843,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту танка от атак наземной техники.
+    the defence of a tank against ground attacks.
   </p>
 </div>
 
@@ -1899,7 +1876,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту танка от атак воздушной техники.
+    the defence of a tank against aerial attacks.
   </p>
 </div>
 
@@ -1932,7 +1909,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает интервал в тиках между двумя последовательными атаками танка.
+    the attack cooldown of a tank.
   </p>
 </div>
 
@@ -1965,8 +1942,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, необхожимое для производства одного танка на заводе
- (<code class="code">FacilityType.vehicleFactory</code>).
+    the amount of ticks to produce a tank on a factory.
   </p>
 </div>
 
@@ -1999,7 +1975,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную прочность БМП.
+    the maximal durability of an ifv.
   </p>
 </div>
 
@@ -2032,7 +2008,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную скорость БМП.
+    the maximal speed of an ifv.
   </p>
 </div>
 
@@ -2065,7 +2041,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовый радиус обзора БМП.
+    the base vision range of an ifv.
   </p>
 </div>
 
@@ -2098,7 +2074,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки БМП по наземным целям.
+    the attack range of an ifv against ground targets.
   </p>
 </div>
 
@@ -2131,7 +2107,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки БМП по воздушным целям.
+    the attack range of an ifv against aerial targets.
   </p>
 </div>
 
@@ -2164,7 +2140,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки БМП по наземной технике.
+    the attack damage of an ifv against ground targets.
   </p>
 </div>
 
@@ -2197,7 +2173,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки БМП по воздушной технике.
+    the attack damage of an ifv against aerial targets.
   </p>
 </div>
 
@@ -2230,7 +2206,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту БМП от атак наземной техники.
+    the defence of an ifv against ground attacks.
   </p>
 </div>
 
@@ -2263,7 +2239,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту БМП от атак воздушной техники.
+    the defence of an ifv against aerial attacks.
   </p>
 </div>
 
@@ -2296,7 +2272,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает интервал в тиках между двумя последовательными атаками БМП.
+    the attack cooldown of an ifv.
   </p>
 </div>
 
@@ -2329,8 +2305,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, необхожимое для производства одной БМП на заводе
- (<code class="code">FacilityType.vehicleFactory</code>).
+    the amount of ticks to produce an ifv on a factory.
   </p>
 </div>
 
@@ -2363,7 +2338,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную прочность БРЭМ.
+    the maximal durability of an arrv.
   </p>
 </div>
 
@@ -2396,7 +2371,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную скорость БРЭМ.
+    the maximal speed of an arrv.
   </p>
 </div>
 
@@ -2429,7 +2404,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовый радиус обзора БРЭМ.
+    the base vision range of an arrv.
   </p>
 </div>
 
@@ -2462,7 +2437,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту БРЭМ от атак наземной техники.
+    the defence of an arrv against ground attacks.
   </p>
 </div>
 
@@ -2495,7 +2470,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту БРЭМ от атак воздушной техники.
+    the defence of an arrv against aerial attacks.
   </p>
 </div>
 
@@ -2528,8 +2503,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, необхожимое для производства одной БРЭМ на заводе
- (<code class="code">FacilityType.vehicleFactory</code>).
+    the amount of ticks to produce an arrv on a factory.
   </p>
 </div>
 
@@ -2562,8 +2536,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальное расстояние (от центра до центра), на котором БРЭМ может ремонтировать
- дружественную технику.
+    the repair range of an arrv.
   </p>
 </div>
 
@@ -2596,8 +2569,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальное количество прочности, которое БРЭМ может восстановить дружественной технике за
- один тик.
+    the repair amount of an arrv per tick.
   </p>
 </div>
 
@@ -2630,7 +2602,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную прочность ударного вертолёта.
+    the maximal durability of a helicopter.
   </p>
 </div>
 
@@ -2663,7 +2635,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную скорость ударного вертолёта.
+    the maximal speed of a helicopter.
   </p>
 </div>
 
@@ -2696,7 +2668,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовый радиус обзора ударного вертолёта.
+    the base vision range of a helicopter.
   </p>
 </div>
 
@@ -2729,7 +2701,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки ударного вертолёта по наземным целям.
+    the attack range of a helicopter against ground targets.
   </p>
 </div>
 
@@ -2762,7 +2734,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки ударного вертолёта по воздушным целям.
+    the attack range of a helicopter against aerial targets.
   </p>
 </div>
 
@@ -2795,7 +2767,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки ударного вертолёта по наземной технике.
+    the attack damage of a helicopter against ground targets.
   </p>
 </div>
 
@@ -2828,7 +2800,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки ударного вертолёта по воздушной технике.
+    the attack damage of a helicopter against aerial targets.
   </p>
 </div>
 
@@ -2861,7 +2833,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту ударного вертолёта от атак наземной техники.
+    the defence of a helicopter against ground attacks.
   </p>
 </div>
 
@@ -2894,7 +2866,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту ударного вертолёта от атак воздушной техники.
+    the defence of a helicopter against aerial attacks.
   </p>
 </div>
 
@@ -2927,7 +2899,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает интервал в тиках между двумя последовательными атаками ударного вертолёта.
+    the attack cooldown of a helicopter.
   </p>
 </div>
 
@@ -2960,8 +2932,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, необхожимое для производства одного ударного вертолёта на заводе
- (<code class="code">FacilityType.vehicleFactory</code>).
+    the amount of ticks to produce a helicopter on a factory.
   </p>
 </div>
 
@@ -2994,7 +2965,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную прочность истребителя.
+    the maximal durability of a fighter.
   </p>
 </div>
 
@@ -3027,7 +2998,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимальную скорость истребителя.
+    the maximal speed of a fighter.
   </p>
 </div>
 
@@ -3060,7 +3031,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает базовый радиус обзора истребителя.
+    the base vision range of a fighter.
   </p>
 </div>
 
@@ -3093,7 +3064,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки истребителя по наземным целям.
+    the attack range of a fighter against ground targets.
   </p>
 </div>
 
@@ -3126,7 +3097,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает дальность атаки истребителя по воздушным целям.
+    the attack range of a fighter against aerial targets.
   </p>
 </div>
 
@@ -3159,7 +3130,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки истребителя по наземной технике.
+    the attack damage of a fighter against ground targets.
   </p>
 </div>
 
@@ -3192,7 +3163,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон одной атаки истребителя по воздушной технике.
+    the attack damage of a fighter against aerial targets.
   </p>
 </div>
 
@@ -3225,7 +3196,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту истребителя от атак наземной техники.
+    the defence of a fighter against ground attacks.
   </p>
 </div>
 
@@ -3258,7 +3229,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает защиту истребителя от атак воздушной техники.
+    the defence of a fighter against aerial attacks.
   </p>
 </div>
 
@@ -3291,7 +3262,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает интервал в тиках между двумя последовательными атаками истребителя.
+    the attack cooldown of a fighter.
   </p>
 </div>
 
@@ -3324,8 +3295,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, необхожимое для производства одного истребителя на заводе
- (<code class="code">FacilityType.vehicleFactory</code>).
+    the amount of ticks to produce a fighter on a factory.
   </p>
 </div>
 
@@ -3358,8 +3328,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает максимально возможную абсолютную величину индикатора захвата сооружения
- (<code class="code">facility.capturePoints</code>).
+    the maximal possible amount of facility capture points.
   </p>
 </div>
 
@@ -3392,8 +3361,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает скорость изменения индикатора захвата сооружения (<code class="code">facility.capturePoints</code>) за каждую
- единицу техники, центр которой находится внутри сооружения.
+    the speed of facility capturing per each vehicle inside the facility area.
   </p>
 </div>
 
@@ -3426,7 +3394,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает ширину сооружения.
+    the width of facility area.
   </p>
 </div>
 
@@ -3459,7 +3427,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает высоту сооружения.
+    the height of facility area.
   </p>
 </div>
 
@@ -3492,8 +3460,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает минимально возможный интервал между двумя последовательными тактическими ядерными ударами
- (<code class="code">ActionType.tacticalNuclearStrike</code>).
+    the base cooldown of tactical nuclear strike request.
   </p>
 </div>
 
@@ -3526,8 +3493,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает уменьшение интервала между тактическими ядерными ударами за каждый захваченный центр
- управления (<code class="code">FacilityType.controlCenter</code>).
+    the cooldown decrease of tactical nuclear strike request per each captured control center.
   </p>
 </div>
 
@@ -3560,7 +3526,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает урон тактического ядерного удара в центре взрыва.
+    the damage in the center of a nuclear explosion.
   </p>
 </div>
 
@@ -3593,7 +3559,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает радиус взрыва тактического ядерного удара.
+    the radius of a nuclear explosion.
   </p>
 </div>
 
@@ -3626,7 +3592,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает задержку между запросом нанесения тактического ядерного удара и собственно самим нанесением.
+    the delay between the request of tactical nuclear strike and the nuclear explosion.
   </p>
 </div>
 

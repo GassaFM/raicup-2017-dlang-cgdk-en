@@ -1,53 +1,52 @@
 module model.player;
 
 /**
- * Содержит данные о текущем состоянии игрока.
+ * The instance of this class contains all the data about player's state.
  */
 immutable class Player
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает уникальный идентификатор игрока.
+     * Returns: the unique player id.
      */
     long id;
     /**
-     * Returns: Возвращает `true` в том и только в том случае, если этот игрок ваш.
+     * Returns: `true` if and only if this is your player.
      */
     bool me;
     /**
-     * Returns: Возвращает специальный флаг --- показатель того, что стратегия игрока <<упала>>.
-     * Более подробную информацию можно найти в документации к игре.
+     * Returns: `true` if and only if the strategy of this player is crashed.
      */
     bool strategyCrashed;
     /**
-     * Returns: Возвращает количество баллов, набранное игроком.
+     * Returns: the amount of score points.
      */
     int score;
     /**
-     * Returns: Возвращает количество тиков, оставшееся до любого следующего действия.
-     * Если значение равно `0`, игрок может совершить действие в данный тик.
+     * Returns: the amount of ticks remaining before any next action. If this value is `0`, then the player may
+     * perform an action in the current tick.
      */
     int remainingActionCooldownTicks;
     /**
-     * Returns: Возвращает количество тиков, оставшееся до следующего тактического ядерного удара.
-     * Если значение равно `0`, игрок может запросить удар в данный тик.
+     * Returns: the amount of ticks remaining before next tactical nuclear strike request. If this value is `0`,
+     * then the player may request a nuclear strike in the current tick.
      */
     int remainingNuclearStrikeCooldownTicks;
     /**
-     * Returns: Возвращает идентификатор техники, осуществляющей наведение ядерного удара на цель или `-1`.
+     * Returns: the nuclear strike spotter vehicle id or `-1`.
      */
     long nextNuclearStrikeVehicleId;
     /**
-     * Returns: Возвращает тик нанесения следующего ядерного удара или `-1`.
+     * Returns: the tick index of this player's next nuclear strike or `-1`.
      */
     int nextNuclearStrikeTickIndex;
     /**
-     * Returns: Возвращает абсциссу цели следующего ядерного удара или `-1.0`.
+     * Returns: the X of this player's next nuclear strike or `-1.0`.
      */
     double nextNuclearStrikeX;
     /**
-     * Returns: Возвращает ординату цели следующего ядерного удара или `-1.0`.
+     * Returns: the Y of this player's next nuclear strike or `-1.0`.
      */
     double nextNuclearStrikeY;
 

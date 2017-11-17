@@ -59,7 +59,7 @@ private:
     Move [] delayedMoves;
 
     /**
-     * Список целей для каждого типа техники, упорядоченных по убыванию урона по ним.
+     * A map from vehicle type to target types ordered by decreasing vulnerability.
      */
     static immutable VehicleType [] [VehicleType] preferredTargetTypesByVehicleType;
 

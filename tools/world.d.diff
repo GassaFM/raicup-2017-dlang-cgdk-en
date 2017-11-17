@@ -1,4 +1,4 @@
-83,93c83,84
+80,90c80,81
 < 
 <         this.terrainByCellXY = new TerrainType[terrainByCellXY.length] [];
 <         for (int x = terrainByCellXY.length; --x >= 0; ) {
@@ -13,11 +13,11 @@
 ---
 >         this.terrainByCellXY = terrainByCellXY;
 >         this.weatherByCellXY = weatherByCellXY;
-100c91
+97c88
 <     Player getMyPlayer () const
 ---
 >     immutable (Player) getMyPlayer ()
-102,106c93,94
+99,103c90,91
 <         int playerIndex = players.length;
 < 
 <         while (--playerIndex >= 0) {
@@ -26,11 +26,11 @@
 ---
 >         foreach (player; players) {
 >             if (player.me) {
-117c105
+114c102
 <     Player getOpponentPlayer () const
 ---
 >     immutable (Player) getOpponentPlayer ()
-119,123c107,108
+116,120c104,105
 <         int playerIndex = players.length;
 < 
 <         while (--playerIndex >= 0) {

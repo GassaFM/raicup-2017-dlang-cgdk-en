@@ -2,22 +2,22 @@ module model.unit;
 import std.math : hypot;
 
 /**
- * Базовый класс для определения объектов (<<юнитов>>) на игровом поле.
+ * Base class that describes any object (``unit'') in the game world.
  */
 abstract immutable class Unit
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает уникальный идентификатор объекта.
+     * Returns: the unique unit id.
      */
     long id;
     /**
-     * Returns: Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо.
+     * Returns: the X of the unit's center. The X-axis is directed from left to right.
      */
     double x;
     /**
-     * Returns: Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз.
+     * Returns: the Y of the unit's center. The Y-axis is directed downward.
      */
     double y;
 
@@ -33,9 +33,9 @@ nothrow pure @safe @nogc:
 
     /**
      * Params:
-     *   x = X-координата точки.
-     *   y = Y-координата точки.
-     * Returns: Возвращает расстояние до точки от центра данного объекта.
+     *   x = X-coordinate of the point to get the distance to.
+     *   y = Y-coordinate of the point to get the distance to.
+     * Returns: the range between the specified point and the center of this unit.
      */
     double getDistanceTo (
         double x,
@@ -46,8 +46,8 @@ nothrow pure @safe @nogc:
 
     /**
      * Params:
-     *   unit = Объект, до центра которого необходимо определить расстояние.
-     * Returns: Возвращает расстояние от центра данного объекта до центра указанного объекта.
+     *   unit = the unit to get the distance to.
+     * Returns: the range between the center of the specified unit and the center of this unit.
      */
     double getDistanceTo (
         immutable Unit unit) const
@@ -57,9 +57,9 @@ nothrow pure @safe @nogc:
 
     /**
      * Params:
-     *   x = X-координата точки.
-     *   y = Y-координата точки.
-     * Returns: Возвращает квадрат расстояния до точки от центра данного объекта.
+     *   x = X-coordinate of the point to get the distance to.
+     *   y = Y-coordinate of the point to get the distance to.
+     * Returns: the squared range between the specified point and the center of this unit.
      */
     double getSquaredDistanceTo (
         double x,
@@ -72,8 +72,8 @@ nothrow pure @safe @nogc:
 
     /**
      * Params:
-     *   unit = Объект, до центра которого необходимо определить квадрат расстояния.
-     * Returns: Возвращает квадрат расстояния от центра данного объекта до центра указанного объекта.
+     *   unit = the unit to get the distance to.
+     * Returns: the squared range between the center of the specified unit and the center of this unit.
      */
     double getSquaredDistanceTo (
         immutable Unit unit) const

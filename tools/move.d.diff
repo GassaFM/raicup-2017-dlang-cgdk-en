@@ -1,58 +1,58 @@
 1a2
 > import std.typecons;
-10c11
+9c10
 < immutable class Move
 ---
 > class Move
-17c18
+16c17
 <     ActionType action;
 ---
 >     Nullable !(ActionType, cast (ActionType) (-1)) action;
-31c32
+29c30
 <     int group;
 ---
 >     int group = 0;
-41c42
+38c39
 <     double left;
 ---
 >     double left = 0.0;
-51c52
+47c48
 <     double top;
 ---
 >     double top = 0.0;
-61c62
+56c57
 <     double right;
 ---
 >     double right = 0.0;
-71c72
+65c66
 <     double bottom;
 ---
 >     double bottom = 0.0;
-94c95
+84c85
 <     double x;
 ---
 >     double x = 0.0;
-117c118
+103c104
 <     double y;
 ---
 >     double y = 0.0;
-126c127
+111c112
 <     double angle;
 ---
 >     double angle = 0.0;
-136c137
+120c121
 <     double factor;
 ---
 >     double factor = 0.0;
-147c148
+129c130
 <     double maxSpeed;
 ---
 >     double maxSpeed = 0.0;
-157c158
+139c140
 <     double maxAngularSpeed;
 ---
 >     double maxAngularSpeed = 0.0;
-170c171
+149c150
 <     VehicleType vehicleType;
 ---
 >     Nullable !(VehicleType, cast (VehicleType) (-1)) vehicleType;

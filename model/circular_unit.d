@@ -3,14 +3,14 @@ module model.circular_unit;
 import model.unit;
 
 /**
- * Базовый класс для определения круглых объектов. Содержит также все свойства юнита.
+ * This base class describes any circular unit in the game world.
  */
 abstract immutable class CircularUnit : Unit
 {
 nothrow pure @safe @nogc:
 
     /**
-     * Returns: Возвращает радиус объекта.
+     * Returns: the radius of this unit.
      */
     double radius;
 

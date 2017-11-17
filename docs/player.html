@@ -492,7 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Содержит данные о текущем состоянии игрока.
+    The instance of this class contains all the data about player's state.
   </p>
 </div>
 
@@ -523,7 +523,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает уникальный идентификатор игрока.
+    the unique player <code class="code">id</code>.
   </p>
 </div>
 
@@ -556,7 +556,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает <code class="code">true</code> в том и только в том случае, если этот игрок ваш.
+    <code class="code">true</code> if and only if this is your player.
   </p>
 </div>
 
@@ -589,8 +589,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает специальный флаг --- показатель того, что стратегия игрока &lt;&lt;упала&gt;&gt;.
- Более подробную информацию можно найти в документации к игре.
+    <code class="code">true</code> if and only if the strategy of this player is crashed.
   </p>
 </div>
 
@@ -623,7 +622,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество баллов, набранное игроком.
+    the amount of <code class="code">score</code> points.
   </p>
 </div>
 
@@ -656,8 +655,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, оставшееся до любого следующего действия.
- Если значение равно <code class="code">0</code>, игрок может совершить действие в данный тик.
+    the amount of ticks remaining before any next action. If this value is <code class="code">0</code>, then the player may
+ perform an action in the current tick.
   </p>
 </div>
 
@@ -690,8 +689,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, оставшееся до следующего тактического ядерного удара.
- Если значение равно <code class="code">0</code>, игрок может запросить удар в данный тик.
+    the amount of ticks remaining before next tactical nuclear strike request. If this value is <code class="code">0</code>,
+ then the player may request a nuclear strike in the current tick.
   </p>
 </div>
 
@@ -724,7 +723,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает идентификатор техники, осуществляющей наведение ядерного удара на цель или <code class="code">-1</code>.
+    the nuclear strike spotter vehicle id or <code class="code">-1</code>.
   </p>
 </div>
 
@@ -757,7 +756,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает тик нанесения следующего ядерного удара или <code class="code">-1</code>.
+    the tick index of this player's next nuclear strike or <code class="code">-1</code>.
   </p>
 </div>
 
@@ -790,7 +789,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает абсциссу цели следующего ядерного удара или <code class="code">-1.0</code>.
+    the X of this player's next nuclear strike or <code class="code">-1.0</code>.
   </p>
 </div>
 
@@ -823,7 +822,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает ординату цели следующего ядерного удара или <code class="code">-1.0</code>.
+    the Y of this player's next nuclear strike or <code class="code">-1.0</code>.
   </p>
 </div>
 

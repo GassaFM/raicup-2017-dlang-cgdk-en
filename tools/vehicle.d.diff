@@ -1,16 +1,16 @@
-158c158
+154c154
 <         super (vehicle.getId (), vehicleUpdate.getX (), vehicleUpdate.getY (), vehicle.getRadius ());
 ---
 >         super (vehicle.id, vehicleUpdate.x, vehicleUpdate.y, vehicle.radius);
-161c161
+157c157
 <         this.durability = vehicleUpdate.getDurability ();
 ---
 >         this.durability = vehicleUpdate.durability;
-175c175
+171c171
 <         this.remainingAttackCooldownTicks = vehicleUpdate.getRemainingAttackCooldownTicks ();
 ---
 >         this.remainingAttackCooldownTicks = vehicleUpdate.remainingAttackCooldownTicks;
-178,181c178,179
+174,177c174,175
 <         this.selected = vehicleUpdate.isSelected ();
 < 
 <         int [] updateGroups = vehicleUpdate.getGroups ();

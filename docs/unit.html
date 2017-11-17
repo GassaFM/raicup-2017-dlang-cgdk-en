@@ -492,7 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Базовый класс для определения объектов (&lt;&lt;юнитов&gt;&gt;) на игровом поле.
+    Base class that describes any object (<code class="code"></code>unit'') in the game world.
   </p>
 </div>
 
@@ -523,7 +523,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает уникальный идентификатор объекта.
+    the unique unit <code class="code">id</code>.
   </p>
 </div>
 
@@ -556,7 +556,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо.
+    the X of the unit's center. The X-axis is directed from left to right.
   </p>
 </div>
 
@@ -589,7 +589,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз.
+    the Y of the unit's center. The Y-axis is directed downward.
   </p>
 </div>
 
@@ -632,7 +632,7 @@
 <td>
   <div class="ddoc_param_desc">
     <p class="para">
-      X-координата точки.
+      X-coordinate of the point to get the distance to.
     </p>
   </div>
 </td>
@@ -646,7 +646,7 @@
 <td>
   <div class="ddoc_param_desc">
     <p class="para">
-      Y-координата точки.
+      Y-coordinate of the point to get the distance to.
     </p>
   </div>
 </td>
@@ -658,7 +658,7 @@
 <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает расстояние до точки от центра данного объекта.
+    the range between the specified point and the center of this unit.
   </p>
 </div>
 
@@ -701,7 +701,7 @@
 <td>
   <div class="ddoc_param_desc">
     <p class="para">
-      Объект, до центра которого необходимо определить расстояние.
+      the <code class="code">unit</code> to get the distance to.
     </p>
   </div>
 </td>
@@ -713,7 +713,7 @@
 <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает расстояние от центра данного объекта до центра указанного объекта.
+    the range between the center of the specified <code class="code">unit</code> and the center of this <code class="code">unit</code>.
   </p>
 </div>
 
@@ -756,7 +756,7 @@
 <td>
   <div class="ddoc_param_desc">
     <p class="para">
-      X-координата точки.
+      X-coordinate of the point to get the distance to.
     </p>
   </div>
 </td>
@@ -770,7 +770,7 @@
 <td>
   <div class="ddoc_param_desc">
     <p class="para">
-      Y-координата точки.
+      Y-coordinate of the point to get the distance to.
     </p>
   </div>
 </td>
@@ -782,7 +782,7 @@
 <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает квадрат расстояния до точки от центра данного объекта.
+    the squared range between the specified point and the center of this unit.
   </p>
 </div>
 
@@ -825,7 +825,7 @@
 <td>
   <div class="ddoc_param_desc">
     <p class="para">
-      Объект, до центра которого необходимо определить квадрат расстояния.
+      the <code class="code">unit</code> to get the distance to.
     </p>
   </div>
 </td>
@@ -837,7 +837,7 @@
 <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает квадрат расстояния от центра данного объекта до центра указанного объекта.
+    the squared range between the center of the specified <code class="code">unit</code> and the center of this <code class="code">unit</code>.
   </p>
 </div>
 

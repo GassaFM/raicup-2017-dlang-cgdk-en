@@ -492,8 +492,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Класс, частично определяющий технику. Содержит уникальный идентификатор техники, а также все поля техники,
- значения которых могут изменяться в процессе игры.
+    Class that partly describes a vehicle. Contains a unique vehicle's identifier as well as all vehicle's fields that
+ may be changed during the game.
   </p>
 </div>
 
@@ -524,7 +524,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает уникальный идентификатор объекта.
+    unique object's identifier.
   </p>
 </div>
 
@@ -557,7 +557,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо.
+    the X of the unit's center. The X-axis is directed from left to right.
   </p>
 </div>
 
@@ -590,7 +590,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз.
+    the Y of the unit's center. The Y-axis is directed downward.
   </p>
 </div>
 
@@ -623,7 +623,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает текущую прочность или <code class="code">0</code>, если техника была уничтожена либо ушла из зоны видимости.
+    current <code class="code">durability</code>, or <code class="code">0</code> if the vehicle has either been destroyed or became invisible to you.
   </p>
 </div>
 
@@ -656,8 +656,8 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает количество тиков, оставшееся до следующей атаки.
- Для совершения атаки необходимо, чтобы это значение было равно нулю.
+    amount of ticks before the vehicle can attack again.
+ In order to attack this value has to be equal zero.
   </p>
 </div>
 
@@ -690,7 +690,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает <code class="code">true</code> в том и только том случае, если эта техника выделена.
+    <code class="code">true</code> iff the vehicle is <code class="code">selected</code>.
   </p>
 </div>
 
@@ -723,7 +723,7 @@
   <div class="ddoc_returns">
   <h4>Return Value</h4>
   <p class="para">
-    Возвращает группы, в которые входит эта техника.
+    list of <code class="code">groups</code> that the vehicle belongs to.
   </p>
 </div>
 
